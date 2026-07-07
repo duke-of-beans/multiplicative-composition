@@ -1,0 +1,13 @@
+{
+  "domain": "NBA Real Data",
+  "n": 210,
+  "mult_spearman": 0.6533045595532123,
+  "add_spearman": 0.6513091833936077,
+  "ratio": 0.9710551664115215,
+  "real_world": true,
+  "exponents": {
+    "offense": 1.730167082674686,
+    "defense": 3.3383203610274563,
+    "cohesion": 0.02433561204910628
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "domain": "network_synchronization",
+  "n_networks": 322,
+  "mult_loss": 0.0821,
+  "add_loss": 0.3348,
+  "loss_ratio": 4.08,
+  "mult_exponents": {"clustering": -0.416, "efficiency": 3.388, "deg_homogeneity": 1.924},
+  "mult_spearman": 0.9448,
+  "add_spearman": 0.9012,
+  "ces_rho": -11.097,
+  "ces_note": "CES optimizer did not converge — landed in Leontief region. Multiplicative loss (0.082) is far below CES loss (0.507), indicating the CES scan missed the rho=0 basin. The 4.1x multiplicative advantage over additive is the reliable finding.",
+  "interpretation": "Multiplicative form dominates (4.1x lower loss, Spearman 0.945 vs 0.901). Clustering gets NEGATIVE exponent — more clustering hurts synchronizability, consistent with Nishikawa et al. 2003. Efficiency is the dominant driver (exponent 3.4). The multiplicative form with fitted exponents captures network synchronization far better than additive."
+}

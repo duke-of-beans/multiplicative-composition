@@ -1,0 +1,23 @@
+{
+  "dataset": "UNDP HDR 2023-24 Composite Indices",
+  "n_countries": 206,
+  "years_analyzed": [2000, 2005, 2009, 2010, 2015, 2020, 2022],
+  "summary": {
+    "total_divergence_cases_extreme": 0,
+    "mean_gap_pre_2010": 0.0088,
+    "mean_gap_post_2010": 0.0062,
+    "overall_mean_gap": 0.0073,
+    "note": "HDI dimensions are constructed with fixed bounds (20-85 for LE, 0-18 for EYS, 0-15 for MYS, log-scaled GNI) that prevent true zeros. The gap is small but systematic: largest for countries with near-zero education (Niger, Burkina Faso, Mali, Senegal). Education is the binding dimension in 100% of top-10 divergence cases across all years. The 2010 switch from arithmetic to geometric reduced the mean gap from 0.0088 to 0.0062.",
+    "key_finding": "The HDI is a WEAK test case for the additive audit because UNDP's dimension indices are constructed to avoid zeros. Even so, the gap is systematic: always positive, always largest for countries with the most unequal dimension scores, and always driven by the education dimension."
+  },
+  "by_year_summary": {
+    "2000": {"n": 187, "mean_gap": 0.0103, "max_gap": 0.0577, "max_country": "Yemen", "rank_corr": 0.9989},
+    "2005": {"n": 199, "mean_gap": 0.0086, "max_gap": 0.0498, "max_country": "Senegal", "rank_corr": 0.9989},
+    "2009": {"n": 200, "mean_gap": 0.0075, "max_gap": 0.0456, "max_country": "Niger", "rank_corr": 0.9993},
+    "2010": {"n": 202, "mean_gap": 0.0073, "max_gap": 0.0456, "max_country": "Niger", "rank_corr": 0.9991},
+    "2015": {"n": 203, "mean_gap": 0.0064, "max_gap": 0.0473, "max_country": "Niger", "rank_corr": 0.9995},
+    "2020": {"n": 203, "mean_gap": 0.0055, "max_gap": 0.0445, "max_country": "Niger", "rank_corr": 0.9997},
+    "2022": {"n": 204, "mean_gap": 0.0057, "max_gap": 0.046, "max_country": "Niger", "rank_corr": 0.9995}
+  },
+  "binding_dimension_analysis": "Education is the binding dimension in 100% of top-10 divergence cases across all 7 years analyzed. No country's life expectancy or income dimension is low enough to create significant additive-geometric divergence within the UNDP's normalization framework."
+}

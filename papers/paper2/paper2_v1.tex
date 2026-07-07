@@ -1,0 +1,355 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{xcolor}
+\usepackage{float}
+\hypersetup{colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rp}{\mathbb{R}_{>0}}
+\newcommand{\Rnn}{\mathbb{R}_{\geq 0}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\title{\textbf{Emergence as Information Volume:\\The Geometric Foundation of Multiplicative Composition}}
+\author{David Kirsch\\\textit{Independent Researcher}\\Simi Valley, California\\\texttt{david@davidkirsch.me}\\\url{https://davidkirsch.me}}
+\date{July 2026}
+\begin{document}
+\maketitle
+
+% =====================================================================
+% ABSTRACT
+% =====================================================================
+\begin{abstract}
+A companion paper \cite{kirsch2026mc} proves that emergent properties---outputs requiring the joint satisfaction of independent, non-substitutable preconditions---compose via the unique multiplicative power-law $f(\mathbf{x}) = k \prod x_i^{\alpha_i}$. That proof is axiomatic: five structural postulates determine the functional form. This paper provides the geometric foundation. We show that the multiplicative law arises naturally from the information geometry of independent observation channels. On a product statistical manifold $\mathcal{M} = \mathcal{M}_1 \times \cdots \times \mathcal{M}_N$ equipped with the Fisher-Rao metric $g$, the Riemannian volume density factorizes as $\sqrt{\det g} = \prod_i \sqrt{g_{ii}(\theta_i)}$. We construct a concrete statistical model---$N$ independent channels with power-law response functions $\mu_i(\theta_i) = \theta_i^{q_i}$, $q_i > 1$---under which $\sqrt{\det g(\boldsymbol{\theta})} = k \prod \theta_i^{\alpha_i}$ with $\alpha_i = q_i - 1 > 0$, recovering the multiplicative composition law exactly. The five axioms of \cite{kirsch2026mc} are shown to be consequences of the geometry: separability from the product structure, zero-collapse from the vanishing of Fisher information at degenerate channels, monotonicity from increasing distinguishability, and homogeneity from the power-law response. We identify a duality between two natural geometric invariants on product manifolds: scalar curvature, which is additive ($R(M_1 \times M_2) = R(M_1) + R(M_2)$), and volume density, which is multiplicative ($\sqrt{\det g} = \prod \sqrt{g_{ii}}$). This duality gives geometric content to the scope condition of \cite{kirsch2026mc}: substitutable dimensions compose through curvature (additive); non-substitutable dimensions compose through volume (multiplicative). The same manifold supports both structures. The choice between them is not a modeling preference---it is a geometric fact about which invariant captures the relevant physical quantity.
+\end{abstract}
+
+\noindent\textbf{Keywords:} information geometry, Fisher information, Riemannian volume element, multiplicative composition, statistical manifold, emergence
+
+\noindent\textbf{MSC:} 53B12, 62B10, 94A17, 39B22
+
+\newpage\tableofcontents\newpage
+
+% =====================================================================
+% 1. INTRODUCTION
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+
+In \cite{kirsch2026mc}, we proved that the composition of independent, non-substitutable dimensions producing an emergent property is uniquely determined by five structural axioms (zero-collapse, continuity, monotonicity, homogeneity, and separability) to be the multiplicative power-law form:
+\begin{equation}\label{eq:mc}
+f(x_1, \ldots, x_N) = k \prod_{i=1}^{N} x_i^{\alpha_i}, \quad k > 0, \; \alpha_i > 0.
+\end{equation}
+The proof applies Acz\'el's theory of functional equations \cite{aczel1966} and is validated empirically across eight scientific fields. But the axiomatic approach leaves a question open: \textit{why} these axioms? Are they contingent postulates, or do they follow from something deeper?
+
+This paper answers: the axioms are consequences of the information geometry of independent observation channels. The multiplicative form is not merely consistent with five postulates---it is the Riemannian volume density on a product statistical manifold equipped with the Fisher-Rao metric, under a natural class of statistical models.
+
+The argument proceeds in three layers, each adding specificity.
+
+\textit{Layer 1 (geometric, unconditional).} On any product Riemannian manifold $\mathcal{M} = \mathcal{M}_1 \times \cdots \times \mathcal{M}_N$ with metric $g = g_1 \oplus \cdots \oplus g_N$, the volume density factorizes:
+\[
+\sqrt{\det g} = \prod_{i=1}^{N} \sqrt{\det g_i}.
+\]
+For one-dimensional factors, $\sqrt{\det g_i} = \sqrt{g_{ii}(\theta_i)}$. This factorization is a standard result in Riemannian geometry. Applied to statistical manifolds with the Fisher-Rao metric, it establishes that informational volume composes multiplicatively for independent dimensions. No assumptions about functional form are needed.
+
+\textit{Layer 2 (the statistical model).} We construct a family of $N$ independent observation channels with power-law response functions. Channel $i$ produces observations $Y_i \sim p(y_i \mid \theta_i)$ with signal $\mu_i(\theta_i) = \theta_i^{q_i}$, where $q_i > 1$ is the response order. The Fisher information for this model is:
+\[
+g_{ii}(\theta_i) = c_i \, \theta_i^{2(q_i - 1)}
+\]
+for a constant $c_i > 0$ depending on the noise distribution. Setting $\alpha_i = q_i - 1$, the volume density becomes $\sqrt{\det g} = k \prod \theta_i^{\alpha_i}$---the multiplicative composition law \eqref{eq:mc} exactly. The model is not ad hoc: it is the simplest nonlinear generalization of a linear signal model, and its parameters have a natural interpretation: $\alpha_i$ is the elasticity of informational resolution with respect to the raw dimension value.
+
+\textit{Layer 3 (axiom recovery).} Under this statistical model, the five axioms of \cite{kirsch2026mc} are not postulates but theorems. Separability follows from the product structure. Zero-collapse follows from the vanishing of Fisher information at $\theta_i = 0$ (when $q_i > 1$, the channel becomes uninformative). Monotonicity follows from increasing Fisher information. Homogeneity follows from the power-law structure. Continuity follows from the smoothness of the Fisher metric on the interior.
+
+\subsection{The curvature-volume duality}
+
+A second contribution of this paper is the identification of a duality between two canonical geometric invariants on product manifolds. Scalar curvature is additive \cite{wikiscalar}:
+\[
+R(\mathcal{M}_1 \times \mathcal{M}_2) = R(\mathcal{M}_1) + R(\mathcal{M}_2).
+\]
+Volume density is multiplicative:
+\[
+\sqrt{\det g(\mathcal{M}_1 \times \mathcal{M}_2)} = \sqrt{\det g(\mathcal{M}_1)} \cdot \sqrt{\det g(\mathcal{M}_2)}.
+\]
+Both are legitimate invariants on the same manifold. This duality gives geometric content to the scope condition of \cite{kirsch2026mc}: substitutable dimensions---those where more of one compensates for less of another---compose through curvature (additive structure). Non-substitutable dimensions---those where zero of any one annihilates the output---compose through volume (multiplicative structure). The same product manifold supports both. The physical question is which invariant captures the relevant quantity.
+
+\subsection{Organization}
+
+Section~\ref{sec:geometry} reviews the relevant information geometry. Section~\ref{sec:factorization} states and proves the volume factorization theorem. Section~\ref{sec:model} constructs the power-law response channel model. Section~\ref{sec:axioms} recovers the five axioms as geometric consequences. Section~\ref{sec:duality} develops the curvature-volume duality. Section~\ref{sec:discussion} discusses limitations and the layered structure of the result. Section~\ref{sec:conclusion} concludes.
+
+% =====================================================================
+% 2. INFORMATION GEOMETRY BACKGROUND
+% =====================================================================
+\section{Statistical Manifolds and the Fisher-Rao Metric}\label{sec:geometry}
+
+\subsection{Statistical manifolds}
+
+A \textit{statistical manifold} is a smooth manifold $\mathcal{M}$ whose points are probability distributions. Let $\{p(x \mid \theta) : \theta \in \Theta \subseteq \R^N\}$ be a parametric family of distributions on a sample space $\mathcal{X}$, with $\theta = (\theta_1, \ldots, \theta_N)$ serving as coordinates. The parameter space $\Theta$ inherits a Riemannian structure from the family of distributions via the Fisher-Rao metric.
+
+\subsection{The Fisher-Rao metric}
+
+\begin{definition}[Fisher information matrix]
+The Fisher information matrix at $\theta$ is the $N \times N$ matrix with entries
+\begin{equation}\label{eq:fisher}
+g_{ij}(\theta) = \mathrm{E}_\theta\!\left[\frac{\partial \log p(X \mid \theta)}{\partial \theta_i} \cdot \frac{\partial \log p(X \mid \theta)}{\partial \theta_j}\right].
+\end{equation}
+Under standard regularity conditions, this equals $-\mathrm{E}_\theta[\partial^2 \log p / \partial \theta_i \partial \theta_j]$.
+\end{definition}
+
+The Fisher-Rao metric $ds^2 = \sum_{i,j} g_{ij}(\theta) \, d\theta_i \, d\theta_j$ equips $\Theta$ with a Riemannian structure. By Chentsov's theorem \cite{chentsov1982}, it is the unique Riemannian metric (up to scale) invariant under sufficient statistics---a foundational result in information geometry \cite{amari2016}.
+
+\subsection{The Riemannian volume element}
+
+The Riemannian volume element on $(\Theta, g)$ is
+\begin{equation}\label{eq:volume}
+d\mathcal{V} = \sqrt{\det g(\theta)} \; d\theta_1 \wedge \cdots \wedge d\theta_N.
+\end{equation}
+The density $\sqrt{\det g(\theta)}$ is the natural measure of \textit{distinguishable volume} in distribution space: it quantifies how many statistically distinguishable distributions exist in an infinitesimal neighborhood of $\theta$. We call this the \textit{informational volume density}.
+
+\begin{remark}[Jeffreys prior]
+The density $\sqrt{\det g(\theta)}$ is precisely the Jeffreys prior \cite{jeffreys1946}---the unique prior that is invariant under reparameterization. This is not coincidental: the Jeffreys prior assigns mass proportional to the number of distinguishable distributions, which is the volume element of the Fisher metric.
+\end{remark}
+
+\subsection{Product manifolds and diagonal metrics}
+
+When the parameters $\theta_1, \ldots, \theta_N$ are statistically independent---that is, $p(x \mid \theta) = \prod_{i=1}^{N} p_i(x_i \mid \theta_i)$---the Fisher information matrix is diagonal:
+\begin{equation}\label{eq:diagonal}
+g_{ij}(\theta) = g_{ii}(\theta_i) \, \delta_{ij}.
+\end{equation}
+The statistical manifold decomposes as a Riemannian product $\mathcal{M} = \mathcal{M}_1 \times \cdots \times \mathcal{M}_N$, where each factor $\mathcal{M}_i$ is a one-dimensional statistical manifold with metric $g_{ii}(\theta_i)$.
+
+% =====================================================================
+% 3. THE VOLUME FACTORIZATION THEOREM
+% =====================================================================
+\section{Volume Factorization for Product Manifolds}\label{sec:factorization}
+
+\begin{theorem}[Volume factorization]\label{thm:factor}
+Let $\mathcal{M} = \mathcal{M}_1 \times \cdots \times \mathcal{M}_N$ be a product statistical manifold with diagonal Fisher metric \eqref{eq:diagonal}. Then:
+\begin{equation}\label{eq:volfactor}
+\sqrt{\det g(\theta)} = \prod_{i=1}^{N} \sqrt{g_{ii}(\theta_i)}.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since $g$ is diagonal, $\det g = \prod_{i=1}^{N} g_{ii}(\theta_i)$. Taking the square root of both sides and using the positivity of each $g_{ii}$ on the interior:
+\[
+\sqrt{\det g} = \sqrt{\prod_{i=1}^{N} g_{ii}(\theta_i)} = \prod_{i=1}^{N} \sqrt{g_{ii}(\theta_i)}.
+\]
+\end{proof}
+
+\begin{corollary}\label{cor:mult}
+The informational volume density of a product statistical manifold is a multiplicative function of the individual dimension metrics. If we define $h_i(\theta_i) \coloneqq \sqrt{g_{ii}(\theta_i)}$---the \textit{informational resolution} of dimension $i$---then
+\[
+\sqrt{\det g(\theta)} = \prod_{i=1}^{N} h_i(\theta_i).
+\]
+This is a multiplicative composition of the individual informational resolutions.
+\end{corollary}
+
+\begin{remark}[Informational resolution]
+The quantity $h_i(\theta_i) = \sqrt{g_{ii}(\theta_i)}$ has a precise operational meaning. It is the Fisher-Rao arc length per unit parameter change along axis $i$: the infinitesimal statistical distance $ds_i = \sqrt{g_{ii}(\theta_i)} \, |d\theta_i|$. It quantifies how rapidly the distribution changes---how distinguishable nearby states are---along dimension $i$. Zero informational resolution ($h_i = 0$) means the distribution is locally insensitive to $\theta_i$: the channel carries no signal along that axis.
+\end{remark}
+
+Theorem~\ref{thm:factor} is the geometric core of this paper. It establishes that the multiplicative structure of the composition law \eqref{eq:mc} is not an artifact of the five axioms in \cite{kirsch2026mc}---it is a property of the Riemannian volume element on product manifolds. The axioms capture this geometry in algebraic form.
+
+However, Theorem~\ref{thm:factor} does not by itself yield the power-law form $\prod \theta_i^{\alpha_i}$. It gives $\prod \sqrt{g_{ii}(\theta_i)}$, which is multiplicative but with arbitrary functions of each $\theta_i$. The power-law structure requires additional input from the statistical model.
+
+% =====================================================================
+% 4. THE POWER-LAW RESPONSE CHANNEL MODEL
+% =====================================================================
+\section{The Power-Law Response Channel}\label{sec:model}
+
+\subsection{Model specification}
+
+Consider $N$ independent observation channels. Channel $i$ produces observations from a location family:
+\begin{equation}\label{eq:channel}
+Y_i \sim p_i\!\left(\frac{y_i - \mu_i(\theta_i)}{\sigma_i}\right), \quad \mu_i(\theta_i) = \theta_i^{q_i}, \quad q_i > 1, \; \theta_i \geq 0,
+\end{equation}
+where $p_i$ is a standardized density with finite Fisher information $I_{p_i} = \int [p_i'(z)/p_i(z)]^2 p_i(z) \, dz < \infty$, and $\sigma_i > 0$ is a noise scale. The parameter $\theta_i$ is the \textit{dimension value} (the raw level of that dimension), and $q_i$ is the \textit{response order} (how nonlinearly the signal depends on the dimension value).
+
+\subsection{Fisher information}
+
+\begin{proposition}\label{prop:fisher}
+Under model \eqref{eq:channel}, the Fisher information for $\theta_i$ is:
+\begin{equation}\label{eq:fisherpower}
+g_{ii}(\theta_i) = \frac{I_{p_i}}{\sigma_i^2} \, q_i^2 \, \theta_i^{2(q_i - 1)}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The log-likelihood for a single observation is $\ell_i = \log p_i((y_i - \theta_i^{q_i})/\sigma_i) - \log \sigma_i$. Differentiating:
+\[
+\frac{\partial \ell_i}{\partial \theta_i} = \frac{1}{\sigma_i} \frac{p_i'(z_i)}{p_i(z_i)} \cdot q_i \theta_i^{q_i - 1}, \quad z_i = \frac{y_i - \theta_i^{q_i}}{\sigma_i}.
+\]
+Taking the expectation of the square:
+\[
+g_{ii}(\theta_i) = \mathrm{E}\!\left[\left(\frac{\partial \ell_i}{\partial \theta_i}\right)^2\right] = \frac{q_i^2 \theta_i^{2(q_i - 1)}}{\sigma_i^2} \cdot \mathrm{E}\!\left[\left(\frac{p_i'(Z)}{p_i(Z)}\right)^2\right] = \frac{I_{p_i} \, q_i^2}{\sigma_i^2} \, \theta_i^{2(q_i - 1)}.
+\]
+\end{proof}
+
+\subsection{Recovery of the multiplicative composition law}
+
+Setting $c_i = I_{p_i} q_i^2 / \sigma_i^2$ and $\alpha_i = q_i - 1$:
+\begin{equation}\label{eq:fisherpower2}
+g_{ii}(\theta_i) = c_i \, \theta_i^{2\alpha_i}, \quad \sqrt{g_{ii}(\theta_i)} = \sqrt{c_i} \, \theta_i^{\alpha_i}.
+\end{equation}
+Applying Theorem~\ref{thm:factor}:
+\begin{equation}\label{eq:recovery}
+\sqrt{\det g(\boldsymbol{\theta})} = \prod_{i=1}^{N} \sqrt{c_i} \, \theta_i^{\alpha_i} = k \prod_{i=1}^{N} \theta_i^{\alpha_i}, \quad k = \prod_{i=1}^{N} \sqrt{c_i} > 0.
+\end{equation}
+This is the multiplicative composition law \eqref{eq:mc} with exponents $\alpha_i = q_i - 1 > 0$.
+
+\subsection{Interpretation of the exponents}
+
+The exponent $\alpha_i = q_i - 1$ has a precise informational meaning: it is the \textit{elasticity of informational resolution with respect to the dimension value}:
+\[
+\alpha_i = \frac{d \log h_i}{d \log \theta_i} = \frac{\theta_i}{h_i} \frac{dh_i}{d\theta_i},
+\]
+where $h_i = \sqrt{g_{ii}} = \sqrt{c_i} \, \theta_i^{\alpha_i}$. A dimension with $\alpha_i = 1$ (quadratic response, $q_i = 2$) has informational resolution proportional to its value. A dimension with $\alpha_i = 2$ (cubic response, $q_i = 3$) has resolution growing as the square of its value---it is more sensitive near zero and contributes more strongly to the binding constraint.
+
+The condition $q_i > 1$ (equivalently $\alpha_i > 0$) has a natural interpretation: \textit{the signal must be superlinear in the dimension value for zero-collapse to hold}. A linear channel ($q_i = 1$) has constant Fisher information---it remains equally informative at all dimension values, including zero. There is no binding constraint because there is no degradation near zero. Emergence requires nonlinear response: the signal must vanish faster than linearly as the dimension approaches zero.
+
+\subsection{Generality of the construction}
+
+The power-law response model is not restricted to Gaussian noise. By Proposition~\ref{prop:fisher}, the structure $g_{ii} \propto \theta_i^{2\alpha_i}$ holds for \textit{any} noise distribution $p_i$ with finite Fisher information $I_{p_i}$. The noise distribution affects only the constant $c_i$, not the functional form. Gaussian, Laplacian, logistic, and any other regular noise distribution yield the same power-law Fisher information structure. This universality strengthens the geometric interpretation: the multiplicative form depends on the response geometry, not on the noise statistics.
+
+% =====================================================================
+% 5. AXIOM RECOVERY
+% =====================================================================
+\section{The Axioms as Geometric Consequences}\label{sec:axioms}
+
+We now show that the five axioms of \cite{kirsch2026mc} are consequences of the information geometry, not independent postulates.
+
+\begin{proposition}[Axiom recovery]\label{prop:axioms}
+Under the power-law response channel model (Section~\ref{sec:model}), the informational volume density $E(\boldsymbol{\theta}) = \sqrt{\det g(\boldsymbol{\theta})}$ satisfies:
+\begin{enumerate}
+\item \textbf{Zero-collapse.} $\theta_i = 0 \implies g_{ii}(0) = 0 \implies E(\boldsymbol{\theta}) = 0$. \\
+\textit{Geometric origin:} At $\theta_i = 0$, the signal $\mu_i(0) = 0^{q_i} = 0$ regardless of the response order. The channel produces pure noise. The distribution does not depend on $\theta_i$ locally, so the Fisher information vanishes. The volume element degenerates along axis $i$, annihilating the total volume. This is zero-collapse as an information-geometric fact.
+
+\item \textbf{Continuity.} $g_{ii}(\theta_i) = c_i \theta_i^{2\alpha_i}$ is smooth on $\Rp$, so $E$ is continuous on $\Rp^N$. \\
+\textit{Geometric origin:} The Fisher metric is smooth on the interior of a regular statistical model.
+
+\item \textbf{Monotonicity.} $\partial E / \partial \theta_i > 0$ for $\theta_i > 0$, since $\alpha_i > 0$. \\
+\textit{Geometric origin:} Increasing $\theta_i$ increases the signal amplitude, making the distribution more sensitive to $\theta_i$ and increasing the Fisher information along that axis.
+
+\item \textbf{Homogeneity.} $E(\lambda \boldsymbol{\theta}) = \lambda^{\sum \alpha_i} E(\boldsymbol{\theta})$ for all $\lambda > 0$. \\
+\textit{Geometric origin:} The power-law structure of the Fisher information produces a homogeneous volume density. The degree of homogeneity $\alpha = \sum \alpha_i$ is the total elasticity of informational resolution.
+
+\item \textbf{Separability.} $E(\boldsymbol{\theta}) = \prod h_i(\theta_i)$ with $h_i = \sqrt{g_{ii}}$. \\
+\textit{Geometric origin:} Statistical independence of the channels produces a diagonal Fisher metric, and the determinant of a diagonal matrix is the product of its diagonal entries.
+\end{enumerate}
+\end{proposition}
+
+The axioms are thus not arbitrary constraints imposed on a composition function. They are the algebraic shadows of the geometry of independent information channels: independence $\to$ diagonal metric $\to$ multiplicative determinant $\to$ separability; degenerate channel $\to$ vanishing Fisher info $\to$ zero determinant $\to$ zero-collapse; nonlinear response $\to$ power-law Fisher info $\to$ homogeneity.
+
+% =====================================================================
+% 6. THE CURVATURE-VOLUME DUALITY
+% =====================================================================
+\section{The Curvature-Volume Duality}\label{sec:duality}
+
+\subsection{Two invariants on product manifolds}
+
+Let $(\mathcal{M}, g) = (\mathcal{M}_1, g_1) \times \cdots \times (\mathcal{M}_N, g_N)$ be a product Riemannian manifold. Two canonical scalar quantities are defined on $\mathcal{M}$:
+
+\textit{Scalar curvature.} The Ricci scalar $R$ is additive under Cartesian products \cite{wikiscalar}:
+\begin{equation}\label{eq:curvadd}
+R(\mathcal{M}_1 \times \cdots \times \mathcal{M}_N) = \sum_{i=1}^{N} R(\mathcal{M}_i).
+\end{equation}
+This is a standard result in Riemannian geometry, sometimes taken as an axiom characterizing scalar curvature.
+
+\textit{Volume density.} The volume density is multiplicative (Theorem~\ref{thm:factor}):
+\begin{equation}\label{eq:volmult}
+\sqrt{\det g(\mathcal{M}_1 \times \cdots \times \mathcal{M}_N)} = \prod_{i=1}^{N} \sqrt{\det g_i(\mathcal{M}_i)}.
+\end{equation}
+
+\subsection{Geometric content of the scope condition}
+
+In \cite{kirsch2026mc}, the scope condition distinguishes two regimes: additive composition (for substitutable dimensions) and multiplicative composition (for non-substitutable dimensions). The curvature-volume duality gives this scope condition geometric content.
+
+\textit{Volume measures total distinguishable structure.} The volume density $\sqrt{\det g}$ counts the number of statistically distinguishable states per unit parameter volume. When one dimension degenerates (Fisher info $\to$ 0), the volume collapses: zero along any axis means zero total. This is the non-substitutable regime---each dimension is individually necessary for the system to have distinguishable structure.
+
+\textit{Curvature measures local geometric complexity.} Scalar curvature $R$ quantifies how much the manifold deviates from flat geometry. When one dimension degenerates, its curvature contribution drops to zero, but the curvature contributions of other dimensions persist. Curvature is robust to single-dimension failure---other dimensions compensate. This is the substitutable regime.
+
+The same product manifold supports both invariants simultaneously. The physical question---whether a zero in one dimension annihilates the output or merely reduces it---determines which invariant is the relevant measure of the emergent property.
+
+% =====================================================================
+% 7. DISCUSSION
+% =====================================================================
+\section{Discussion}\label{sec:discussion}
+
+\subsection{The layered structure of the result}
+
+We emphasize the layered nature of this paper's contribution:
+
+\textit{Layer 1} (Theorem~\ref{thm:factor}, geometric, unconditional): The volume density of a product manifold is multiplicative. This is standard Riemannian geometry, applied here to statistical manifolds. It establishes the multiplicative structure without any assumption about functional form.
+
+\textit{Layer 2} (Proposition~\ref{prop:fisher}, model-specific): The power-law response channel gives Fisher information $g_{ii} \propto \theta_i^{2\alpha_i}$. This is a specific statistical model. Different models would give different functional forms for $\sqrt{g_{ii}}$, all multiplicative but not necessarily power laws.
+
+\textit{Layer 3} (domain-specific): The exponents $\alpha_i = q_i - 1$ are determined by the response order of each dimension's signal. These are empirical parameters, estimated from data. The geometry does not determine them; it determines the multiplicative structure within which they operate.
+
+The honest summary: geometry gives you multiplication; the specific model gives you the exponents.
+
+\subsection{The power-law response assumption}
+
+The power-law mean $\mu(\theta) = \theta^q$ is the simplest model that produces vanishing Fisher information at $\theta = 0$. It is not the only such model: any mean function $\mu(\theta)$ with $\mu(0) = 0$ and $\mu'(0) = 0$ will have $g(\theta) \propto [\mu'(\theta)]^2 \to 0$ as $\theta \to 0$. The power law is distinguished by its scale invariance, which produces the homogeneity axiom. Relaxing the power-law assumption opens the space of composition functions to $\prod \sqrt{g_{ii}(\theta_i)}$ with general (non-power-law) factors---multiplicative but not Cobb-Douglas. This parallels the relaxation of the homogeneity axiom in \cite{kirsch2026mc}, which opens the CES family.
+
+\subsection{The density-vs-scalar issue}
+
+A technical subtlety: $\sqrt{\det g}$ is a scalar \textit{density}, not a scalar. It transforms under reparameterization as $\sqrt{\det g'} = \sqrt{\det g} \cdot |\det(\partial \theta / \partial \theta')|$. The volume \textit{form} $\sqrt{\det g} \, d^N\!\theta$ is invariant, but the pointwise density is coordinate-dependent.
+
+This is standard for physical densities---energy density, charge density, and mass density are all coordinate-dependent. The invariant quantity is the integral over a region (total informational volume). The pointwise density is meaningful relative to a fixed parameterization, which in this context is provided by the dimension values $\theta_i$ (the natural parameters of the statistical model). We note that the Jeffreys prior \cite{jeffreys1946} is precisely $\sqrt{\det g}$, and its coordinate dependence is a feature, not a bug: it ensures that the prior is non-informative relative to the chosen parameterization.
+
+\subsection{Connections to existing work}
+
+The connection between Fisher information and emergent structure has been noted in several contexts. Yoo-Kong \cite{yookong2026} derives the relativistic dispersion relation as an emergent structure from a multiplicative Hamiltonian via the Fisher-Rao geometry, a conceptually parallel construction. Cafaro and Ali \cite{cafaro2008} use the information volume on curved statistical manifolds as a complexity measure for dynamical systems. The ``density of distinguishable states'' interpretation of $\sqrt{\det g}$ appears in quantum metrology \cite{qdistinguishable}. To our knowledge, this paper is the first to explicitly connect the volume factorization on product statistical manifolds to the multiplicative composition law for emergent properties.
+
+% =====================================================================
+% 8. CONCLUSION
+% =====================================================================
+\section{Conclusion}\label{sec:conclusion}
+
+The multiplicative composition law $f = k \prod x_i^{\alpha_i}$ for emergent properties, established axiomatically in \cite{kirsch2026mc}, has a geometric origin. On the product statistical manifold of independent observation channels, the Riemannian volume density factorizes multiplicatively---a direct consequence of the product structure and the Fisher-Rao metric. Under the natural class of power-law response channels, this factorization yields the multiplicative power law exactly, with exponents determined by the response order of each dimension.
+
+The five axioms of \cite{kirsch2026mc} are not independent postulates. They are the algebraic expression of properties that the Fisher metric possesses automatically: separability from independence, zero-collapse from information degeneracy, monotonicity from increasing distinguishability, homogeneity from power-law response, and continuity from metric regularity. The axiomatic proof establishes the uniqueness of the functional form; the geometric derivation explains why those axioms hold.
+
+The curvature-volume duality adds a second contribution: on a product manifold, scalar curvature is additive and volume density is multiplicative. These are not competing models but coexisting geometric structures. The scope condition---substitutable dimensions compose additively, non-substitutable dimensions compose multiplicatively---acquires geometric content: it is the choice between curvature and volume as the relevant physical invariant.
+
+The multiplicative composition law has been independently discovered nine times across two centuries \cite{kirsch2026mc}. This paper suggests a reason: the multiplicative structure is not merely consistent with a set of axioms. It is the geometry of information.
+
+% =====================================================================
+% BIBLIOGRAPHY
+% =====================================================================
+\begin{thebibliography}{99}
+
+\bibitem{aczel1966} Acz\'el, J. (1966). \textit{Lectures on Functional Equations and Their Applications}. Academic Press.
+
+\bibitem{amari2016} Amari, S. (2016). \textit{Information Geometry and Its Applications}. Springer.
+
+\bibitem{ay2017} Ay, N., Jost, J., L\^e, H.V., and Schwachh\"ofer, L. (2017). \textit{Information Geometry}. Springer.
+
+\bibitem{cafaro2008} Cafaro, C. and Ali, S.A. (2008). Information geometric complexity of entropic motion on curved statistical manifolds. arXiv:1308.4867.
+
+\bibitem{chentsov1982} Chentsov, N.N. (1982). \textit{Statistical Decision Rules and Optimal Inference}. AMS Translations.
+
+\bibitem{jeffreys1946} Jeffreys, H. (1946). An invariant form for the prior probability in estimation problems. \textit{Proc.\ Roy.\ Soc.\ A}, 186:453--461.
+
+\bibitem{kirsch2026mc} Kirsch, D. (2026). Multiplicative composition of independent dimensions in emergent systems. \textit{arXiv preprint}.
+
+\bibitem{qdistinguishable} Lu, X.M. et al. (2020). Measure of the density of quantum states in information geometry. \textit{Physical Review A}.
+
+\bibitem{silvey1959} Silvey, S.D. (1959). The Lagrangian multiplier test. \textit{Ann.\ Math.\ Stat.}, 30:389--407.
+
+\bibitem{singularinfo} Pace, L. and Salvan, A. (2022). Likelihood asymptotics in nonregular settings. arXiv:2206.15178.
+
+\bibitem{wikiscalar} The additivity of scalar curvature under Cartesian products is a standard result; see e.g.\ any text on Riemannian geometry or the characterization in Lott (2020).
+
+\bibitem{yookong2026} Yoo-Kong, S. (2026). Relativistic Hamiltonian as an emergent structure from information geometry. arXiv:2601.12764.
+
+\end{thebibliography}
+
+\end{document}

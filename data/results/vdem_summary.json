@@ -1,0 +1,262 @@
+{
+  "summary": {
+    "total_observations": 26954,
+    "mean_gap": 0.2691,
+    "median_gap": 0.257,
+    "max_gap": 0.754,
+    "extreme_cases_count": 2586,
+    "pct_gap_above_0_1": 76.1,
+    "pct_gap_above_0_3": 42.9,
+    "key_finding": "Of 26954 country-year observations, 2586 have additive > 0.5 but multiplicative < 0.1 (hidden zeros). The additive index systematically overstates democracy for countries with a collapsed dimension."
+  },
+  "extreme_top10": [
+    {
+      "country": "Hong Kong",
+      "year": 1995,
+      "api_additive": 0.754,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.377,
+      "gap": 0.754,
+      "v2x_freexp_altinf": 0.897,
+      "v2x_frassoc_thick": 0.847,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.798,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Hong Kong",
+      "year": 1996,
+      "api_additive": 0.754,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.377,
+      "gap": 0.754,
+      "v2x_freexp_altinf": 0.897,
+      "v2x_frassoc_thick": 0.845,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.799,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Japan",
+      "year": 1951,
+      "api_additive": 0.751,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.376,
+      "gap": 0.751,
+      "v2x_freexp_altinf": 0.805,
+      "v2x_frassoc_thick": 0.824,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.895,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Japan",
+      "year": 1950,
+      "api_additive": 0.75,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.375,
+      "gap": 0.75,
+      "v2x_freexp_altinf": 0.805,
+      "v2x_frassoc_thick": 0.824,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.891,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Latvia",
+      "year": 1920,
+      "api_additive": 0.749,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.374,
+      "gap": 0.749,
+      "v2x_freexp_altinf": 0.836,
+      "v2x_frassoc_thick": 0.781,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.618,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Latvia",
+      "year": 1921,
+      "api_additive": 0.748,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.374,
+      "gap": 0.748,
+      "v2x_freexp_altinf": 0.833,
+      "v2x_frassoc_thick": 0.809,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.874,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Hong Kong",
+      "year": 1993,
+      "api_additive": 0.747,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.373,
+      "gap": 0.747,
+      "v2x_freexp_altinf": 0.897,
+      "v2x_frassoc_thick": 0.848,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.762,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Hong Kong",
+      "year": 1994,
+      "api_additive": 0.747,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.373,
+      "gap": 0.747,
+      "v2x_freexp_altinf": 0.897,
+      "v2x_frassoc_thick": 0.848,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.762,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Hong Kong",
+      "year": 1992,
+      "api_additive": 0.745,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.373,
+      "gap": 0.745,
+      "v2x_freexp_altinf": 0.897,
+      "v2x_frassoc_thick": 0.838,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.762,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Hong Kong",
+      "year": 1998,
+      "api_additive": 0.745,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.372,
+      "gap": 0.745,
+      "v2x_freexp_altinf": 0.847,
+      "v2x_frassoc_thick": 0.826,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.819,
+      "v2x_elecoff": 0
+    }
+  ],
+  "top5_divergences": [
+    {
+      "country": "Hong Kong",
+      "year": 1995,
+      "api_additive": 0.754,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.377,
+      "gap": 0.754,
+      "v2x_freexp_altinf": 0.897,
+      "v2x_frassoc_thick": 0.847,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.798,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Hong Kong",
+      "year": 1996,
+      "api_additive": 0.754,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.377,
+      "gap": 0.754,
+      "v2x_freexp_altinf": 0.897,
+      "v2x_frassoc_thick": 0.845,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.799,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Japan",
+      "year": 1951,
+      "api_additive": 0.751,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.376,
+      "gap": 0.751,
+      "v2x_freexp_altinf": 0.805,
+      "v2x_frassoc_thick": 0.824,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.895,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Japan",
+      "year": 1950,
+      "api_additive": 0.75,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.375,
+      "gap": 0.75,
+      "v2x_freexp_altinf": 0.805,
+      "v2x_frassoc_thick": 0.824,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.891,
+      "v2x_elecoff": 0
+    },
+    {
+      "country": "Latvia",
+      "year": 1920,
+      "api_additive": 0.749,
+      "mpi_multiplicative": 0,
+      "edi_official": 0.374,
+      "gap": 0.749,
+      "v2x_freexp_altinf": 0.836,
+      "v2x_frassoc_thick": 0.781,
+      "v2x_suffr": 1,
+      "v2xel_frefair": 0.618,
+      "v2x_elecoff": 0
+    }
+  ],
+  "decades": {
+    "1900s": {
+      "n_observations": 1255,
+      "mean_gap": 0.2309,
+      "max_gap_country": "Denmark",
+      "max_gap_value": 0.741,
+      "extreme_count": 427
+    },
+    "1950s": {
+      "n_observations": 1559,
+      "mean_gap": 0.2764,
+      "max_gap_country": "Japan",
+      "max_gap_value": 0.751,
+      "extreme_count": 646
+    },
+    "1970s": {
+      "n_observations": 1574,
+      "mean_gap": 0.2831,
+      "max_gap_country": "Suriname",
+      "max_gap_value": 0.735,
+      "extreme_count": 698
+    },
+    "1990s": {
+      "n_observations": 1746,
+      "mean_gap": 0.344,
+      "max_gap_country": "Hong Kong",
+      "max_gap_value": 0.754,
+      "extreme_count": 1065
+    },
+    "2000s": {
+      "n_observations": 1773,
+      "mean_gap": 0.3506,
+      "max_gap_country": "Hong Kong",
+      "max_gap_value": 0.743,
+      "extreme_count": 1095
+    },
+    "2010s": {
+      "n_observations": 1789,
+      "mean_gap": 0.3567,
+      "max_gap_country": "Hong Kong",
+      "max_gap_value": 0.739,
+      "extreme_count": 1138
+    },
+    "2020s": {
+      "n_observations": 1074,
+      "mean_gap": 0.354,
+      "max_gap_country": "Honduras",
+      "max_gap_value": 0.577,
+      "extreme_count": 693
+    }
+  }
+}

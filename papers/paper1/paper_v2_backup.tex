@@ -1,0 +1,675 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{setspace}
+
+% --- Theorem environments ---
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{axiom}{Axiom}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% --- Hyperref setup ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    citecolor=blue!60!black,
+    urlcolor=blue!60!black,
+}
+
+% --- Custom commands ---
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Rp}{\mathbb{R}_{>0}}
+\newcommand{\Rnn}{\mathbb{R}_{\geq 0}}
+\DeclareMathOperator{\Spearman}{\rho_s}
+
+% --- Title ---
+\title{\textbf{Multiplicative Composition of Independent Dimensions\\ in Emergent Systems}}
+
+\author{David Kirsch\\
+\textit{Independent Researcher}\\
+Simi Valley, California\\
+\texttt{david@davidkirsch.me}\\
+\url{https://davidkirsch.me}}
+
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+% =====================================================================
+% ABSTRACT
+% =====================================================================
+\begin{abstract}
+When independent dimensions combine to produce an emergent property---an output that requires all dimensions and tolerates the absence of none---the composition function is not a matter of modeling preference. We prove it is uniquely determined. Five axioms characterizing emergence (zero-collapse, continuity, monotonicity, scale consistency, and separability) admit exactly one composition function:
+\[
+f(x_1, \ldots, x_N) = k \prod_{i=1}^{N} x_i^{\alpha_i}, \quad k > 0, \; \alpha_i > 0.
+\]
+This is the power-law (Cobb-Douglas) form. The proof applies Acz\'el's theory of functional equations (1966) to the specific problem of emergence. We validate the result empirically across eight fields---materials science, marine biology, urban economics, development economics, agriculture, public health, neuroscience, and macroeconomics---using ten real-world datasets comprising over 127,000 observations. The multiplicative model achieves higher predictive accuracy than the additive alternative in seven of eight well-specified tests.
+
+This result has been independently derived at least nine times across two centuries: by Sprengel in agriculture (1826), Cobb and Douglas in production economics (1928), reliability engineers in series-system analysis (1950s), Kremer in development theory (1993), pharmaceutical regulators in pharmacokinetic modeling (2003), Pitz and Ferraz in cooperative game theory (2026), and the U.S.\ Department of Defense in operational interface design (2026)---each arriving at multiplicative composition from different starting axioms, in different fields, without knowledge of the others' work. When nine independent research programs converge on the same functional form across two hundred years, the result is not a framework. It is a law that has been repeatedly discovered because it is true, and repeatedly ignored because its implications are inconvenient for the additive default that governs virtually every composite metric, scoring rubric, and policy index in current use.
+
+We derive a policy-relevant consequence: because $\partial f / \partial x_i$ is steepest when $x_i$ is smallest, returns to investment are necessarily highest at the weakest dimension. This inverts Kremer's (1993) O-Ring conclusion and establishes that the compassionate allocation and the efficient allocation are, for emergent properties, mathematically identical.
+\end{abstract}
+
+\vspace{1em}
+\noindent\textbf{Keywords:} multiplicative composition, emergence, Cobb-Douglas, functional equations, zero-collapse, O-Ring theory, binding constraints, cross-domain validation
+
+\vspace{0.5em}
+\noindent\textbf{JEL Classification:} C02, C51, O11, O47
+
+\vspace{0.5em}
+\noindent\textbf{MSC:} 39B22, 91B02, 62P20
+
+\newpage
+\tableofcontents
+\newpage
+
+% =====================================================================
+% 1. INTRODUCTION
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+
+The default quantitative framework across the sciences is additive. Composite indices average their components. Risk assessments sum weighted factors. Development metrics aggregate dimensions arithmetically. Scoring rubrics add points across criteria. This is how virtually every institution in the world turns multiple measurements into a single number: it adds them up.
+
+This paper proves that for a specific, important, and common class of outputs, the additive framework is the wrong algebraic structure---not approximately wrong, not sometimes wrong, but provably and uniquely wrong. The class in question is \textit{emergent properties}: outputs that arise from the joint satisfaction of independent preconditions, where each precondition is individually necessary but only collectively sufficient. Under this definition, the absence of any single precondition is fatal to the output, regardless of the strength of the remaining dimensions.
+
+The distinction between additive and multiplicative composition is not merely technical. Under additive composition, a zero in one dimension is offset by strength in others---the weighted sum remains positive. Under multiplicative composition, a zero in any dimension annihilates the output entirely. The two frameworks make sharply different predictions about system behavior near the failure boundary, about the optimal allocation of scarce resources, and about which dimension deserves investment at any given moment. Where they diverge, one of them is wrong.
+
+The scope of the claim requires precise statement. Not all composition is multiplicative. Dimensions that are genuinely substitutable---where more of one can compensate for less of another---compose additively, and the additive framework is correct for them. The diagnostic question is structural: does the product depend on each part, and is each part unique in what it contributes? If a dimension can be compensated for by another, add. If it cannot, multiply. The theorem established in this paper applies to the latter case and proves there is no third option.
+
+\subsection{The persistence of the additive default}
+
+If multiplicative composition of non-substitutable dimensions were merely a useful modeling alternative, its adoption would be a matter of preference. But the uniqueness result established in Section~\ref{sec:axioms} removes the choice: for emergent properties, the multiplicative form is the only composition function consistent with the structural axioms. This raises a question: if the result is provable, why is the additive default still dominant?
+
+The answer is that the result has not been recognized as a law. The multiplicative structure has been independently discovered at least nine times across two centuries---by Sprengel \cite{sprengel1826} in agricultural nutrient limitation (1826), by Cobb and Douglas \cite{cobb1928} in production economics (1928), by reliability engineers in series-system analysis (formalized in the AGREE report \cite{agree1957}), by Kremer \cite{kremer1993} in development theory (1993), by pharmaceutical regulators in pharmacokinetic modeling (codified in FDA guidance \cite{fda2003}), by Pitz and Ferraz \cite{pitz2026} in cooperative game theory (2026), and by the U.S.\ Department of Defense in operational interface design (2026). Each derivation arrived from different starting axioms, in different fields, without knowledge of the others' work. Yet none established the result as domain-general. Each remained local: Cobb-Douglas was ``an economics model.'' Series reliability was ``a probability calculation.'' Liebig's Law was ``an agricultural principle.'' The multiplicative structure kept being discovered and kept being treated as a domain-specific tool rather than a universal composition law.
+
+The consequences of this non-recognition are measurable. The Varieties of Democracy project (V-Dem) computes both a multiplicative and an additive electoral democracy index, then averages them---explicitly because ``we have no strong reason to prefer'' one over the other \cite{coppedge2018}. Their own data shows that when the multiplicative index is zero, the additive index can score as high as 0.77. A country with zero press freedom is rated 77\% democratic by the additive half of their index. The Human Development Index was additive until 2010; the UNDP switched to a geometric mean, implicitly acknowledging the multiplicative structure, but without formal justification. Risk assessment frameworks at aviation authorities, financial regulators, and engineering certification bodies use additive weighted scoring. In each case, the additive model hides zeros inside averages, making failing systems appear adequate until they collapse.
+
+If the multiplicative composition of non-substitutable dimensions were recognized as a law---proved, validated, and institutionally adopted---these measurement errors would not persist. The persistence of the errors is itself the evidence that the law needs to be established.
+
+\subsection{Contributions}
+
+This paper makes three contributions.
+
+\textit{First}, we state five axioms characterizing emergent composition and prove that they uniquely determine the multiplicative power-law form $f(\mathbf{x}) = k \prod x_i^{\alpha_i}$. The proof applies standard results from functional equation theory \cite{aczel1966} to a new problem---the composition of independent dimensions producing emergence---and differs structurally from the closest prior result in measurement theory \cite{luce1965} in three respects: it requires no concatenation operations, it introduces zero-collapse as a defining axiom, and it generalizes to $N$ dimensions.
+
+\textit{Second}, we test the result empirically across eight scientific fields using ten real-world datasets with over 127,000 total observations. The multiplicative model achieves superior or equal accuracy in seven of eight well-specified tests. We report all results, including two tests where the additive model outperforms due to specification issues, and analyze the failures honestly.
+
+\textit{Third}, we derive the marginal return inversion: because $\partial f / \partial x_i = (f / x_i) \cdot \alpha_i$ is a decreasing function of $x_i$, returns to investment are highest at the weakest dimension. This inverts the policy conclusion of Kremer's (1993) O-Ring theory---same mathematics, opposite prescription---and establishes that investing in the weakest dimension is simultaneously the most compassionate and the most efficient allocation. This is not a values argument. It is a derivative.
+
+\subsection{Scope and limitations}
+
+The multiplicative framework applies when two conditions are met: the emergent output depends on each dimension, and each dimension is unique in what it contributes---that is, the dimensions are non-substitutable. When inputs are substitutable, the additive model is appropriate. We do not claim that all composition is multiplicative. We claim that for the specific class of outputs defined by these two conditions, it provably must be. We discuss the boundary between these regimes in Section~\ref{sec:discussion}, and we report two empirical tests where the additive model outperforms, analyzing the specification issues that explain the result.
+
+\subsection{Organization}
+
+Section~\ref{sec:axioms} states the five axioms and proves the uniqueness theorem. Section~\ref{sec:priorart} positions the contribution relative to prior work and presents the genealogy of independent derivations. Section~\ref{sec:empirical} presents the empirical validation. Section~\ref{sec:oring} derives the O-Ring inversion. Section~\ref{sec:discussion} discusses limitations. Section~\ref{sec:conclusion} concludes.
+
+
+% =====================================================================
+% 2. AXIOMS AND UNIQUENESS PROOF
+% =====================================================================
+\section{Axioms and Uniqueness Proof}\label{sec:axioms}
+
+\subsection{Setup}
+
+Let $x_1, x_2, \ldots, x_N \in \Rnn$ represent $N$ independent dimensions of a system. We seek a composition function $f: \Rnn^N \to \Rnn$ that maps the dimension values to a scalar measure of the system's emergent output. The following five axioms characterize the properties such a function must satisfy when the output is emergent---that is, when the product depends on each part, and each part is unique in what it contributes.
+
+\subsection{The five axioms}
+
+\begin{axiom}[Zero-Collapse]\label{ax:zero}
+If any dimension $x_i = 0$, then $f(x_1, \ldots, x_N) = 0$. That is, for all $i \in \{1, \ldots, N\}$,
+\[
+f(x_1, \ldots, x_{i-1}, 0, x_{i+1}, \ldots, x_N) = 0.
+\]
+\end{axiom}
+
+\noindent This is the defining property of emergence as we use the term. Emergence requires all dimensions to be present. The absence of any one dimension is not a deficit to be compensated; it is a structural failure.
+
+The zero-collapse property distinguishes emergent composition from additive aggregation at the most fundamental level. Under additive composition, $f(\mathbf{x}) = \sum w_i x_i$, setting one dimension to zero reduces the sum but does not eliminate it---the remaining dimensions compensate. A weighted scoring rubric that averages across criteria will rate a proposal with one catastrophic dimension and nine excellent dimensions as ``above average.'' Under zero-collapse, such a system receives a score of zero. The two frameworks make opposite predictions at the failure boundary, which is precisely where correct diagnosis matters most.
+
+Zero-collapse is not an exotic theoretical property. It is the everyday experience of non-substitutability: zero cement produces zero concrete regardless of aggregate quality. Zero institutional independence produces zero democracy regardless of electoral participation. A drug with zero bioavailability has zero efficacy regardless of receptor affinity. Zero trust in an interbank lending market produces zero lending regardless of capital reserves. In each case, the binding constraint is not a weakness to be averaged away; it is a structural absence that prevents emergence.
+
+\begin{axiom}[Continuity]\label{ax:cont}
+$f$ is continuous on $\Rp^N$.
+\end{axiom}
+
+\noindent Continuity requires that small changes in input produce small changes in output, away from the zero boundary. This is primarily a regularity condition. It ensures that the composition function is well-behaved, precludes the pathological solutions to the Cauchy functional equation that arise without regularity constraints (these solutions, which require the Axiom of Choice and are non-measurable, have no physical interpretation), and guarantees that the functional equation analysis yields a unique answer.
+
+Note that continuity is required on the interior $\Rp^N$, not at the boundary. At the boundary---where some $x_i = 0$---the multiplicative form exhibits the characteristic cliff behavior: the output drops discontinuously from a positive value to zero as any dimension crosses the threshold. This discontinuity at the boundary is a feature, not a pathology. It is the mathematical expression of the qualitative observation that emergence collapses abruptly when a precondition fails, rather than degrading smoothly.
+
+\begin{axiom}[Monotonicity]\label{ax:mono}
+$f$ is strictly increasing in each $x_i$ on $\Rp^N$. That is, for each $i$ and all $x_j > 0$ ($j \neq i$),
+\[
+x_i < x_i' \implies f(x_1, \ldots, x_i, \ldots, x_N) < f(x_1, \ldots, x_i', \ldots, x_N).
+\]
+\end{axiom}
+
+\noindent More of any dimension, all else equal, improves the emergent output. This axiom restricts the framework to domains where each dimension contributes positively within its operational range, excluding cases where an input becomes harmful at high levels. The restriction is less severe than it initially appears: dimensions that exhibit diminishing returns or toxicity at high levels can be modeled by appropriate transformations. The relevant dimension is not ``water volume'' but ``water adequacy,'' not ``medication dose'' but ``therapeutic coverage.''
+
+\begin{axiom}[Scale Consistency (Homogeneity)]\label{ax:scale}
+There exists a constant $\alpha > 0$ such that for all $\lambda > 0$,
+\[
+f(\lambda x_1, \ldots, \lambda x_N) = \lambda^\alpha \, f(x_1, \ldots, x_N).
+\]
+\end{axiom}
+
+\noindent Scaling all inputs uniformly by a factor $\lambda$ scales the output by $\lambda^\alpha$. This axiom asserts that the composition function is unit-free: it depends on the proportional levels of the dimensions, not on the scale in which they are measured.
+
+Homogeneity is the most consequential mathematical assumption in the framework. Many emergent phenomena exhibit threshold effects, phase transitions, or scale-dependent dynamics that violate strict homogeneity. We retain the axiom for two reasons. First, it delivers a sharp uniqueness result: given the other four axioms, homogeneity pins down the functional form exactly. Without it, the composition function is underdetermined and must be estimated from data---specifically, it opens the full constant elasticity of substitution (CES) family, of which the multiplicative form is one member. Second, the empirical evidence in Section~\ref{sec:empirical} suggests that the multiplicative form fits the data as well as or better than its alternatives across a range of domains. The axiom is a useful idealization, not a claim about exact physical reality. We discuss the consequences of relaxing it in Section~\ref{sec:discussion}.
+
+\begin{axiom}[Separability (Independence)]\label{ax:sep}
+The composition function factors into a product of functions, each depending on a single dimension:
+\[
+f(x_1, \ldots, x_N) = \prod_{i=1}^{N} g_i(x_i)
+\]
+for some functions $g_i : \Rp \to \Rp$.
+\end{axiom}
+
+\noindent Separability encodes the independence of the dimensions: the contribution of dimension $x_i$ to the emergent output does not depend on the level of $x_j$ for $j \neq i$. The dimensions operate through separate channels, and the composition function combines their individual contributions multiplicatively.
+
+This axiom will strike some readers as paradoxical. Emergence is often defined as ``more than the sum of its parts,'' implying that interaction effects are constitutive. We draw a distinction that resolves the apparent paradox. Separability asserts independence of the \textit{preconditions} for emergence, not independence of the dynamics that produce it. The preconditions are the structural requirements---each must be above zero---and their contributions to whether emergence occurs are independent. The emergent dynamics that unfold once all preconditions are met may involve rich interactions, feedback loops, and synergies. The framework models the former, not the latter.
+
+\begin{remark}
+Axiom~\ref{ax:zero} is stated for conceptual clarity as the defining property of emergence. As the proof will show, it is in fact implied by Axioms~\ref{ax:mono}--\ref{ax:sep}: the monotonicity condition forces the exponents $\alpha_i$ to be strictly positive, and the resulting power-law form automatically satisfies zero-collapse. We retain it as a separate statement because it is the conceptual starting point---the property that distinguishes emergent composition from additive aggregation---and because it motivates the entire framework.
+\end{remark}
+
+\subsection{The uniqueness theorem}
+
+\begin{theorem}[Uniqueness of Multiplicative Composition]\label{thm:main}
+Let $f: \Rnn^N \to \Rnn$ satisfy Axioms~\ref{ax:zero}--\ref{ax:sep}. Then
+\[
+f(x_1, \ldots, x_N) = k \prod_{i=1}^{N} x_i^{\alpha_i}
+\]
+for some constants $k > 0$ and $\alpha_i > 0$ with $\sum_{i=1}^{N} \alpha_i = \alpha$, where $\alpha$ is the homogeneity degree from Axiom~\ref{ax:scale}.
+\end{theorem}
+
+\begin{proof}
+We proceed in four steps.
+
+\medskip
+\noindent\textit{Step 1: Factorization.} By Axiom~\ref{ax:sep},
+\begin{equation}\label{eq:factor}
+f(x_1, \ldots, x_N) = \prod_{i=1}^{N} g_i(x_i)
+\end{equation}
+for functions $g_i : \Rp \to \Rp$.
+
+\medskip
+\noindent\textit{Step 2: Deriving the functional equation.} Applying Axiom~\ref{ax:scale} to \eqref{eq:factor}:
+\[
+\prod_{i=1}^{N} g_i(\lambda x_i) = \lambda^\alpha \prod_{i=1}^{N} g_i(x_i).
+\]
+Dividing both sides by $\prod g_i(x_i)$:
+\begin{equation}\label{eq:ratio}
+\prod_{i=1}^{N} \frac{g_i(\lambda x_i)}{g_i(x_i)} = \lambda^\alpha.
+\end{equation}
+The right-hand side is independent of $x_1, \ldots, x_N$. Since each factor on the left depends only on its own $x_i$, each factor must individually be independent of $x_i$. (If any factor varied with its $x_i$, we could fix the other $x_j$ values and vary $x_i$ to change the left side while the right side remains fixed, a contradiction.) Therefore, for each $i$, there exists a function $\varphi_i : \Rp \to \Rp$ such that
+\begin{equation}\label{eq:phi}
+\frac{g_i(\lambda x_i)}{g_i(x_i)} = \varphi_i(\lambda) \quad \text{for all } \lambda, x_i > 0,
+\end{equation}
+and
+\begin{equation}\label{eq:phiprod}
+\prod_{i=1}^{N} \varphi_i(\lambda) = \lambda^\alpha.
+\end{equation}
+
+\medskip
+\noindent\textit{Step 3: Solving via the multiplicative Cauchy equation.} Setting $x_i = 1$ in \eqref{eq:phi}: $g_i(\lambda) = \varphi_i(\lambda) \cdot g_i(1)$. Let $k_i = g_i(1) > 0$. Define $h_i(x) = g_i(x)/k_i$, so that $h_i(1) = 1$. Substituting:
+\[
+h_i(\lambda x_i) = h_i(\lambda) \cdot h_i(x_i).
+\]
+This is the \textit{multiplicative Cauchy functional equation}:
+\begin{equation}\label{eq:cauchy}
+h_i(st) = h_i(s) \cdot h_i(t) \quad \text{for all } s, t > 0.
+\end{equation}
+Taking logarithms and writing $H_i = \log \circ \, h_i$, equation~\eqref{eq:cauchy} becomes $H_i(st) = H_i(s) + H_i(t)$, which is the additive Cauchy equation on $\Rp$. By Axiom~\ref{ax:cont}, $H_i$ is continuous. The unique continuous solution is $H_i(x) = \alpha_i \log x$ for some constant $\alpha_i \in \R$ (Acz\'el \cite[Theorem~1, p.~34]{aczel1966}). Therefore,
+\[
+h_i(x) = x^{\alpha_i}, \quad \text{and thus} \quad g_i(x) = k_i \, x^{\alpha_i}.
+\]
+
+\medskip
+\noindent\textit{Step 4: Assembling the result.} Substituting back into \eqref{eq:factor}:
+\[
+f(x_1, \ldots, x_N) = \left(\prod_{i=1}^{N} k_i\right) \prod_{i=1}^{N} x_i^{\alpha_i} = k \prod_{i=1}^{N} x_i^{\alpha_i},
+\]
+where $k = \prod k_i > 0$. From \eqref{eq:phiprod}: $\sum_{i=1}^{N} \alpha_i = \alpha$. By Axiom~\ref{ax:mono}, $\alpha_i > 0$ for each $i$. Zero-collapse (Axiom~\ref{ax:zero}) is automatically satisfied since $\alpha_i > 0$.
+\end{proof}
+
+\subsection{Necessity of each axiom}
+
+The uniqueness result depends on all five axioms in the sense that relaxing any one opens the door to alternative functional forms.
+
+\textit{Without zero-collapse.} Removing zero-collapse as a desideratum permits the additive class $f(\mathbf{x}) = \sum w_i x_i$, which is the substitutable regime. The choice between additive and multiplicative composition reduces to the empirical question of whether the dimensions are substitutable.
+
+\textit{Without continuity.} The Cauchy equation admits discontinuous, non-measurable solutions requiring the Axiom of Choice. These are mathematically pathological and have no physical interpretation.
+
+\textit{Without monotonicity.} The exponents $\alpha_i$ may be zero or negative, permitting inhibitory or saturating inputs. The form $f = k \prod x_i^{\alpha_i}$ with $\alpha_i < 0$ diverges as $x_i \to 0$, violating the spirit of zero-collapse.
+
+\textit{Without scale consistency.} This is the most consequential relaxation. Dropping homogeneity opens the full CES family:
+\begin{equation}\label{eq:ces}
+f(\mathbf{x}) = \left(\sum_{i=1}^{N} a_i \, x_i^{\rho}\right)^{1/\rho}, \quad \rho \leq 1.
+\end{equation}
+The multiplicative form is the $\rho \to 0$ limit. The additive form is $\rho = 1$. The Leontief (minimum) function is $\rho \to -\infty$. Without homogeneity, the data must decide between these alternatives.
+
+\textit{Without separability.} Interaction terms of the form $f(\mathbf{x}) = k \prod x_i^{\alpha_i} \cdot \prod_{i < j} (x_i x_j)^{\beta_{ij}}$ become possible, at the cost of $O(N^2)$ additional parameters and sacrificed interpretive clarity.
+
+\subsection{Relationship to Acz\'el's functional equation theory}
+
+The mathematical backbone of the proof is the multiplicative Cauchy equation $h(st) = h(s)h(t)$ and its unique continuous solution $h(x) = x^\alpha$, a classical result \cite{aczel1966}. Our contribution is not the solution method but the \textit{problem} to which it is applied: the characterization of emergent composition via the five axioms above. The axioms translate a qualitative concept (emergence requires all dimensions) into formal conditions, and the functional equation machinery determines the unique quantitative form.
+
+
+% =====================================================================
+% 3. PRIOR ART, POSITIONING, AND THE GENEALOGY OF INDEPENDENT DERIVATIONS
+% =====================================================================
+\section{Prior Art and Positioning}\label{sec:priorart}
+
+The multiplicative power-law form $f(\mathbf{x}) = k \prod x_i^{\alpha_i}$ has appeared across several fields, each arriving from different motivating questions and axiom sets. We position the present work relative to the most important predecessors, then present the genealogy of independent derivations that motivates the law-status claim.
+
+\subsection{Measurement theory: Luce (1965)}
+
+Luce \cite{luce1965} proved that conjoint measurement scales are power functions of extensive measurement scales for physical quantities with concatenation operations. His axioms require that the component quantities possess physical concatenation---the operation of placing masses together, adding lengths, combining velocities.
+
+The present work differs in three structural ways. First, we require no concatenation operations, which is essential because many emergent properties involve dimensions (institutional trust, ecosystem resilience, information quality) that have no physical concatenation. Second, zero-collapse (Axiom~\ref{ax:zero}) does not appear in Luce's framework, which operates on the positive reals exclusively. Third, Luce's result is for three variables; ours holds for $N$ dimensions. What the two frameworks share is the mathematical backbone: both invoke the multiplicative Cauchy equation from Acz\'el~\cite{aczel1966}.
+
+\subsection{Development economics: Jones (2011)}
+
+Jones \cite{jones2011} models production in developing economies using the CES function~\eqref{eq:ces} with $\rho < 0$, capturing complementarity among intermediate goods. He demonstrates that weak-link complementarity sharply amplifies the effect of distortions.
+
+The present work extends Jones in three directions. First, we prove axiomatically that the multiplicative case ($\rho \to 0$) is uniquely determined for emergent properties, whereas Jones assumes the CES form. Second, we estimate $\rho$ empirically across non-economic domains. Third, we derive the marginal return inversion (Section~\ref{sec:oring}).
+
+\subsection{Development economics: Kremer (1993)}
+
+Kremer \cite{kremer1993} used the multiplicative production function $q = \prod q_i$ to model the O-Ring theory of economic development. His central result is that multiplicative complementarity implies positive assortative matching: firms maximize output by pairing workers of similar skill. In Section~\ref{sec:oring}, we show that this conclusion inverts once the optimization target shifts from individual firm output to system-wide resilience.
+
+\subsection{Game theory: Pitz and Ferraz (2026)}
+
+Pitz and Ferraz \cite{pitz2026} independently derived a multiplicative power composition in the theory of cooperative games, introducing cohesion-sensitive power indices where coalition strength takes a multiplicative form. Their framework includes a zero-collapse analog---coalitions with zero cohesion produce zero power---and is formally verified in Lean~4. The derivation arrives from Luce's choice axiom through cooperative game theory, independent of economics, measurement theory, or the emergence framework presented here.
+
+\subsection{The genealogy of independent derivations}\label{sec:genealogy}
+
+The convergence of independent research programs on the same mathematical structure across two centuries is, we argue, the strongest evidence for law-status. We document nine independent derivations, ordered chronologically.
+
+\textit{1. Sprengel (1826) / Liebig (1840): Agricultural nutrient limitation.} Carl Sprengel first published the Law of the Minimum in 1826 \cite{sprengel1826}, establishing that crop growth is governed by the scarcest nutrient regardless of the abundance of others (see van der Ploeg et al.\ \cite{vanderploeg1999} for the priority question). Liebig popularized the principle in 1840. The Law of the Minimum is the extreme case of multiplicative composition (the Leontief limit, $\rho \to -\infty$ in the CES family), but it encodes the same structural insight: dimensions that are each necessary for the output cannot compensate for each other. Zero of any one means zero output. This is zero-collapse discovered empirically in agricultural soil chemistry, two hundred years before the present proof.
+
+\textit{2. Cobb and Douglas (1928): Production economics.} Cobb and Douglas \cite{cobb1928} fitted the production function $Y = A L^\beta K^{1-\beta}$ to U.S.\ manufacturing data, establishing the multiplicative form in economics without axiomatic justification. The function was treated as an empirical model, not a uniqueness result.
+
+\textit{3. Reliability engineering (1950s): Series system analysis.} The reliability of a series system---where failure of any component causes system failure---is the product of component reliabilities: $R_{\text{series}} = \prod R_i$, assuming independence \cite{agree1957}. This is zero-collapse applied to engineering: one component at zero reliability produces zero system reliability. The formula has been textbook material for seventy years. No prior work, to our knowledge, has connected it to Cobb-Douglas, information geometry, or the general emergence framework.
+
+\textit{4. Kremer (1993): The O-Ring theory.} Kremer \cite{kremer1993} used the multiplicative form to model quality complementarity in production and derived positive assortative matching. His contribution demonstrated the economic consequences of multiplicative structure but did not prove uniqueness or generalize beyond production.
+
+\textit{5. Pharmaceutical regulation (2003): Pharmacokinetic modeling.} The FDA 2003 guidance on bioavailability and bioequivalence \cite{fda2003} codifies a multiplicative model for pharmacokinetic responses, recommending logarithmic transformation of AUC and $C_{\max}$. This has been internationally harmonized across the European CPMP, the U.S.\ FDA, and Health Canada \cite{steinijans1993}. Drug exposure is inherently multiplicative: $\text{AUC} = F \cdot D / \text{CL}$, where $F$ is fraction absorbed, $D$ is dose, and CL is clearance. Zero bioavailability produces zero exposure regardless of dose---zero-collapse in pharmacology, arrived at empirically from clinical trial data.
+
+\textit{6. Pitz and Ferraz (2026): Cooperative game theory.} As described above: independent derivation from Luce's choice axiom, formally verified in Lean~4 \cite{pitz2026}.
+
+\textit{7. U.S.\ Department of Defense CDAO (2026): Operational interface design.} The Chief Digital and Artificial Intelligence Office developed a nine-question validation rubric for operator-facing interfaces in which any unanswerable question fails the screen entirely. This is zero-collapse applied to UX design, arrived at operationally---through iterative testing with warfighters under cognitive load---without knowledge of multiplicative composition theory. The rubric encodes the structural insight that interface value is the product of independent signal dimensions, not their sum.
+
+\textit{8. V-Dem (Coppedge et al., 2018): Democracy measurement.} The Varieties of Democracy project computes a five-way multiplicative interaction of electoral democracy components alongside an additive weighted average, then takes the mean of the two indices \cite{coppedge2018}. They acknowledge that the multiplicative form operationalizes the belief that ``each of the five components is essential for electoral democracy''---``clean elections do not matter if no one has the right to vote''---but adopt the compromise because they have ``no strong reason to prefer'' one aggregation over the other. The present paper provides that reason.
+
+\textit{9. The present work (2026): Uniqueness proof and cross-domain validation.} This paper contributes the axiomatic proof establishing uniqueness, the cross-domain empirical validation, and the O-Ring inversion. The genealogy above provides the context: the multiplicative structure is not an artifact of our axioms. It is the structure that independent researchers keep discovering because it is the correct composition law for non-substitutable dimensions.
+
+\subsection{Adjacent contributions}
+
+Milgrom and Roberts \cite{milgrom1990} formalized supermodularity as the mathematical framework for complementarities in production. Goldratt \cite{goldratt1984} articulated the Theory of Constraints in manufacturing---a qualitative version of the binding constraint principle that follows from the multiplicative derivative (Section~\ref{sec:oring}). Hirschman \cite{hirschman1958} theorized that development depends on linkages and complementarities among sectors.
+
+The contribution of the present paper relative to this body of work is the combination of axiomatic proof, cross-domain empirical validation, the independent derivation genealogy, and the marginal return inversion. No prior work, to our knowledge, has established all four.
+
+
+% =====================================================================
+% 4. EMPIRICAL VALIDATION
+% =====================================================================
+\section{Empirical Validation}\label{sec:empirical}
+
+\subsection{Method}\label{sec:method}
+
+We test the multiplicative and additive models on ten real-world datasets spanning eight scientific fields. For each dataset, we identify an emergent output variable $y$ and a set of dimension variables $x_1, \ldots, x_N$ that, on theoretical grounds, represent non-substitutable preconditions for the output.
+
+\textit{Multiplicative model.} We take logarithms of all variables and fit a linear model in log-space:
+\begin{equation}\label{eq:logmodel}
+\log y = \beta_0 + \sum_{i=1}^{N} \alpha_i \log x_i + \varepsilon.
+\end{equation}
+This is equivalent to the multiplicative power-law $y = k \prod x_i^{\alpha_i}$, estimated via ordinary least squares (OLS) in log-space.
+
+\textit{Additive model.} We fit a standard linear regression:
+\begin{equation}\label{eq:linmodel}
+y = c_0 + \sum_{i=1}^{N} \beta_i x_i + \varepsilon.
+\end{equation}
+
+\textit{Comparison metric.} For each model, we compute the Spearman rank correlation $\Spearman$ between the model's predicted values $\hat{y}$ and the actual values $y$. Spearman rank correlation is robust to monotone transformations and distributional assumptions. We report $\Delta\Spearman = \Spearman^{\text{mult}} - \Spearman^{\text{add}}$; positive values favor the multiplicative model.
+
+\subsection{Datasets and results}
+
+Table~\ref{tab:results} summarizes the ten empirical tests. We describe the principal datasets in detail below.
+
+\begin{table}[H]
+\centering
+\caption{Empirical comparison of multiplicative and additive composition across ten real-world datasets. $\Spearman$ denotes Spearman rank correlation between predicted and actual values. $\Delta = \Spearman^{\text{mult}} - \Spearman^{\text{add}}$. Datasets ordered by effect size.}\label{tab:results}
+\smallskip
+\begin{tabular}{@{}rlllrrrc@{}}
+\toprule
+\# & Domain & Field & $N$ & $\Spearman^{\text{mult}}$ & $\Spearman^{\text{add}}$ & $\Delta$ & Winner \\
+\midrule
+1 & Concrete Strength & Materials Sci. & 1{,}030 & 0.885 & 0.770 & $+$0.114 & Mult. \\
+2 & Agriculture & Ecol.\ Econ. & 53 & 0.524 & 0.420 & $+$0.104 & Mult. \\
+3 & Infrastructure $\to$ GDP & Development & 160 & 0.940 & 0.915 & $+$0.025 & Mult. \\
+4 & Abalone Age & Marine Biol. & 4{,}175 & 0.726 & 0.702 & $+$0.024 & Mult. \\
+5 & California Housing & Urban Econ. & 20{,}640 & 0.732 & 0.709 & $+$0.023 & Mult. \\
+6 & Child Survival & Public Health & 240 & 0.876 & 0.857 & $+$0.019 & Mult. \\
+7 & HDI Components & Development & 66 & 0.897 & 0.881 & $+$0.016 & Mult. \\
+8 & Penn World Table & Macroecon. & 7{,}540 & 0.963 & 0.961 & $+$0.002 & Tie \\
+\midrule
+9 & Clinical EEG & Neuroscience & 94{,}182 & \multicolumn{2}{c}{(see text)} & 2.2$\times$ & Mult. \\
+10 & Network Sync. & Network Sci. & 67 & \multicolumn{2}{c}{(see text)} & --- & Mult. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Concrete compressive strength (Materials Science, $N = 1{,}030$)}
+
+The largest effect size appears in a materials science dataset from the UCI Machine Learning Repository \cite{yeh1998}, comprising 1,030 observations of concrete compressive strength as a function of eight ingredient quantities. The multiplicative model achieves $\Spearman = 0.885$ versus $0.770$ for the additive model ($\Delta = +0.114$). This result has clear physical grounding: zero cement produces zero concrete regardless of aggregate quality, and the interaction between water-cement ratio and curing time is fundamentally multiplicative.
+
+\subsubsection{Agriculture (Ecological Economics, $N = 53$)}
+
+Cross-country data from the World Bank API (2018--2019) on cereal yield as a function of irrigation coverage and fertilizer consumption per hectare. The multiplicative model achieves $\Spearman = 0.524$ versus $0.420$ additive ($\Delta = +0.104$). Water and nutrients serve different biochemical functions in plant growth. Doubling fertilizer cannot compensate for zero irrigation. This test connects directly to the Sprengel-Liebig genealogy (Section~\ref{sec:genealogy}): the Law of the Minimum, discovered empirically in 1826, is the qualitative precursor to the quantitative result confirmed here.
+
+\subsubsection{Infrastructure and GDP (Development Economics, $N = 160$)}
+
+A three-dimensional model relating infrastructure access (electricity, internet, improved water) to GDP per capita across 160 countries. The multiplicative advantage ($\Delta = +0.025$) is consistent with the non-substitutability of infrastructure types: internet access without electricity is useless; electricity without clean water diverts resources to health crises that suppress productivity.
+
+\subsubsection{Abalone age (Marine Biology, $N = 4{,}175$)}
+
+Abalone age depends on multiple physical dimensions that reflect growth along independent anatomical axes. The multiplicative model outperforms ($\Delta = +0.024$), consistent with the hypothesis that biological growth integrates dimensions multiplicatively: a specimen stunted in one dimension cannot compensate with excess growth in another. This test demonstrates that the multiplicative structure is not merely a property of engineered or social systems.
+
+\subsubsection{California housing (Urban Economics, $N = 20{,}640$)}
+
+The largest dataset by observation count relates median house value to neighborhood characteristics. The multiplicative model achieves $\Spearman = 0.732$ versus $0.709$ ($\Delta = +0.023$). A neighborhood with zero income has zero effective demand regardless of housing stock.
+
+\subsubsection{Child survival (Public Health, $N = 240$)}
+
+Health expenditure per capita and immunization rates jointly predict child survival with $\Spearman = 0.876$ multiplicative versus $0.857$ additive ($\Delta = +0.019$). A country with high health spending but zero immunization remains vulnerable to vaccine-preventable diseases; a country with high immunization but zero health infrastructure lacks the capacity to administer vaccines.
+
+\subsubsection{HDI components (Development Economics, $N = 66$)}
+
+Life expectancy and mean years of schooling predict GNI per capita with $\Delta = +0.016$. The UNDP itself switched the HDI from arithmetic to geometric mean in 2010, implicitly acknowledging the multiplicative structure.
+
+\subsubsection{Clinical EEG and the zero-collapse prediction (Neuroscience, $N = 94{,}182$)}\label{sec:eeg}
+
+The zero-collapse axiom generates a distinctive empirical prediction: as any dimension approaches zero, the multiplicative measure should degrade faster than the additive measure---cliff-like rather than proportional.
+
+We test this using the Sleep-EDF database \cite{goldberger2000}, comprising 94,182 thirty-second epochs of clinical EEG across sleep stages. For each epoch, we compute spectral power in four frequency bands (delta, theta, alpha, beta) representing independent neural dynamics. The product $P = \prod S_b$ degrades 2.2 times faster than the sum $\Sigma = \sum S_b$ across sleep-stage transitions. When a single spectral dimension drops toward zero, the product collapses while the sum barely changes. This asymmetry is precisely what zero-collapse predicts and is inconsistent with additive composition.
+
+\subsubsection{Penn World Table (Macroeconomics, $N = 7{,}540$)}
+
+The Penn World Table \cite{feenstra2015} yields $\Spearman = 0.963$ multiplicative versus $0.961$ additive---a difference of $+0.002$. This is essentially a tie. We report it without qualification: capital and labor at the aggregate level exhibit considerable substitutability. The strict multiplicative regime holds at the boundary (zero labor produces zero output) but not in the interior. This is consistent with the framework's scope condition: where dimensions are substitutable, the multiplicative advantage disappears, as it should.
+
+\subsubsection{Network synchronization (Network Science, $N = 67$)}
+
+Synchronization of coupled oscillators on 67 empirical network topologies. The multiplicative predictor outperforms the additive predictor of the synchronization threshold. Small $N$ limits the strength of the conclusion but contributes cross-domain breadth.
+
+\subsection{Tests where the additive model outperforms}
+
+We conducted two additional tests where the additive model achieved higher $\Spearman$.
+
+\textit{Education (primary completion rate, $N = 109$).} Additive outperformed by $\Delta = -0.012$. A ceiling effect compresses variance: most countries exceed 90\% completion, reducing the multiplicative model's discriminatory power.
+
+\textit{Gender equity ($N = 159$).} Additive outperformed by $\Delta = -0.141$. This was a specification failure: the chosen dimensions were not the non-substitutable preconditions for female labor force participation. Cultural norms, legal frameworks, and childcare infrastructure---the actual binding constraints---were not measured.
+
+These results underscore that the multiplicative model requires correct specification of the non-substitutable dimensions and loses discriminatory power near ceiling effects.
+
+\subsection{The CES elasticity parameter}\label{sec:ces}
+
+The multiplicative form is the $\rho \to 0$ limit of the CES family~\eqref{eq:ces}. We estimate $\rho$ by nonlinear least squares where convergence is achieved. Point estimates cluster in $\rho \in [-0.3, 0.1]$, consistent with strong complementarity. The CES estimator is numerically unstable near $\rho = 0$, making precise identification difficult. The direct multiplicative-vs.-additive comparison (Table~\ref{tab:results}) is a more stable and informative test.
+
+
+% =====================================================================
+% 5. THE O-RING INVERSION
+% =====================================================================
+\section{The O-Ring Inversion}\label{sec:oring}
+
+\subsection{Kremer's original argument}
+
+Kremer \cite{kremer1993} considers a production function $q = \prod_{i=1}^{N} q_i$, where $q_i \in [0, 1]$ is the reliability of worker $i$. He derives that under competitive labor markets, firms maximize profit by positive assortative matching: pairing high-skill workers together and low-skill workers together. The product $\prod q_i$ is supermodular, so a high-skill worker is more productive alongside other high-skill workers.
+
+Kremer's model explains the concentration of high-skill industries in wealthy countries, large wage premiums for skill, and the difficulty of incremental improvement in poor countries where the entire production chain contains weak links.
+
+\subsection{The inversion}
+
+The O-Ring inversion does not dispute Kremer's mathematics. It changes the optimization target. The inversion was first articulated in non-technical form in \cite{kirsch2025}.
+
+Kremer optimizes individual firm output: for any given firm, positive assortative matching maximizes $\prod q_i$. This is correct. But consider the aggregate: a system composed of many subsystems, where overall emergent output is $F = \prod_j f_j$. What allocation of a fixed investment budget $B$ across subsystems maximizes $F$?
+
+The answer follows from the partial derivative:
+\begin{equation}\label{eq:marginal}
+\frac{\partial f}{\partial x_i} = \frac{f}{x_i} \cdot \alpha_i.
+\end{equation}
+The term $f / x_i$ is a \textit{decreasing} function of $x_i$: $\partial^2 f / \partial x_i^2 = k \, \alpha_i(\alpha_i - 1) \, x_i^{\alpha_i - 2} \prod_{j \neq i} x_j^{\alpha_j} < 0$ when $\alpha_i < 1$, confirming concavity. Marginal returns to investment are highest at the weakest dimension. The optimal allocation under a fixed budget is to invest in the weakest dimension first.
+
+\subsection{The compassionate allocation is the efficient allocation}
+
+In many policy contexts, investing in the weakest dimension is characterized as \textit{compassionate}---helping those most in need, prioritizing the vulnerable. The multiplicative framework reveals that this is simultaneously the \textit{efficient} allocation: it maximizes the emergent output per unit of investment. The convergence of compassion and efficiency is not a coincidence. It is a mathematical consequence of the multiplicative form.
+
+\begin{remark}[Positive and normative claims]
+The \textit{positive} claim---marginal returns are steepest at the weakest dimension---is a mathematical fact, derivable from the composition function without normative input. The \textit{normative} claim---we \textit{should} invest at the bottom---is a values choice. The mathematics does not make it for us. What the mathematics does is eliminate the supposed trade-off between compassion and efficiency. The policymaker who invests in the weakest dimension need not apologize for sacrificing efficiency at the altar of equity. Under multiplicative composition, no sacrifice is being made.
+\end{remark}
+
+\subsection{Relationship to the Theory of Constraints}
+
+Goldratt's Theory of Constraints \cite{goldratt1984} articulates a qualitative version of the same principle: a system's throughput is governed by its bottleneck. Equation~\eqref{eq:marginal} provides the mathematical foundation. The binding constraint is the dimension with the smallest $\alpha_i$-weighted value, and the marginal return to relaxing that constraint is strictly greater than the marginal return to improving any other dimension.
+
+\subsection{Quantitative illustration}
+
+Consider a five-dimensional system with $\mathbf{x} = (8, 7, 9, 2, 6)$ and equal exponents $\alpha_i = 0.2$. The current emergent output is $f(\mathbf{x}) = 8^{0.2} \cdot 7^{0.2} \cdot 9^{0.2} \cdot 2^{0.2} \cdot 6^{0.2} \approx 5.53$. The marginal returns:
+\begin{align*}
+\partial f / \partial x_4 &= (5.53 / 2) \cdot 0.2 = 0.553 \quad \text{(weakest dimension)} \\
+\partial f / \partial x_3 &= (5.53 / 9) \cdot 0.2 = 0.123 \quad \text{(strongest dimension)}
+\end{align*}
+The return at the weakest dimension is 4.5 times larger than at the strongest. Under the additive model $f(\mathbf{x}) = \sum 0.2 \, x_i$, the marginal return is 0.2 everywhere---no reason to prioritize the weak. The multiplicative framework identifies the weakest dimension as the point of maximum leverage.
+
+\subsection{Broader implications}
+
+In organizational design, the binding constraint determines the organization's ceiling. A company with brilliant strategy, ample capital, strong talent, favorable timing, and broken culture has an emergent output near zero. In engineering reliability, the weakest component determines system reliability. In development economics, countries with zero governance and high capital investment show little measurable improvement \cite{easterly2006}. These domain-specific insights---Goldratt's bottleneck, the reliability engineer's weakest link, the development economist's institutional prerequisite---are all instances of a single mathematical structure: $\partial f / \partial x_i = (f / x_i) \cdot \alpha_i$ is steepest when $x_i$ is smallest, regardless of the domain.
+
+
+% =====================================================================
+% 6. DISCUSSION
+% =====================================================================
+\section{Discussion}\label{sec:discussion}
+
+\subsection{The homogeneity axiom}\label{sec:homogeneity}
+
+Axiom~\ref{ax:scale} is the most consequential assumption. Relaxing it opens the full CES family~\eqref{eq:ces}, where the multiplicative form is one member ($\rho \to 0$). Without homogeneity, the choice between CES members must be made empirically. The empirical results consistently favor the multiplicative end of the spectrum, but they do not prove $\rho = 0$ exactly. The honest summary: homogeneity is a useful idealization that delivers a sharp uniqueness result, and the data are consistent with this idealization.
+
+\subsection{The separability axiom}\label{sec:separability}
+
+Separability precludes synergistic interaction effects. We regard it as appropriate for modeling the \textit{preconditions} for emergence---the necessary conditions that must all be above zero---rather than the synergistic dynamics that produce emergence once preconditions are met. A natural extension introduces interaction terms at the cost of $O(N^2)$ additional parameters. We leave this to future work.
+
+\subsection{When additive composition is correct}\label{sec:whenadd}
+
+The multiplicative framework is not a universal replacement for additive aggregation. The diagnostic question is structural: does a zero in one dimension annihilate the output, or merely reduce it? Investment portfolio returns are additive---a loss in one asset is offset by gains in others. Test scores assessing breadth of knowledge are additive---strength in one topic compensates for weakness in another. Energy generation is additive across sources (solar substitutes for gas) but multiplicative across the preconditions for delivery (generation $\times$ storage $\times$ transmission $\times$ grid stability).
+
+The boundary between regimes is a property of the specific domain and dimensions. The same system may be additive along some dimensions and multiplicative along others. Identifying which dimensions are substitutable is a domain-specific question the framework cannot answer a priori; it provides the mathematical consequences once the determination is made.
+
+\subsection{The institutional additive default}
+
+A contribution of this paper that extends beyond the mathematical result is the identification of domains where additive composition is currently applied to non-substitutable dimensions. The V-Dem project averages multiplicative and additive democracy indices, assigning equal weight despite acknowledging the theoretical superiority of the multiplicative form \cite{coppedge2018}. Risk assessment frameworks in aviation and financial regulation use additive weighted scoring across dimensions that exhibit clear non-substitutability. Pharmaceutical regulators use multiplicative models for pharmacokinetics but additive models for risk-benefit assessment within the same drug approval process \cite{fda2003}.
+
+In each case, the additive default hides zeros inside averages: a country with zero press freedom scores 0.77 on democracy; a drug with a catastrophic safety profile receives a passing composite score; an engineering system with one failed component registers ``moderate risk.'' The multiplicative framework does not merely provide a better fit. It provides a different \textit{diagnosis}---one that surfaces the binding constraint rather than averaging it away.
+
+\subsection{Specification sensitivity}
+
+The multiplicative framework's predictions depend on correct specification of the non-substitutable dimensions. As the gender equity test demonstrates ($\Delta = -0.141$), the framework performs worse than additive when the chosen dimensions do not capture the actual preconditions. This is a standard specification problem, but it has a diagnostic upside: when the multiplicative model underperforms, it signals that the dimensional specification may be incorrect.
+
+\subsection{Future work: information geometry}
+
+A suggestive connection links the multiplicative form to information geometry. On a statistical manifold parameterized by the dimension values, the Fisher information metric decomposes multiplicatively along independent parameter axes. If emergence corresponds to information volume on this manifold---specifically, if the appropriate measure is the square root of the determinant of the Fisher information matrix---then the multiplicative form follows from the geometry of the information space itself. We regard this connection as conjectural but note that preliminary numerical verification recovers the theoretical exponents to three decimal places. If established, this derivation would ground the uniqueness result in the structure of information rather than in axioms about composition.
+
+
+% =====================================================================
+% 7. CONCLUSION
+% =====================================================================
+\section{Conclusion}\label{sec:conclusion}
+
+This paper has established three results. First, that emergent properties---outputs requiring the joint satisfaction of independent, non-substitutable preconditions---compose multiplicatively, and that this is the unique composition function consistent with five structural axioms. Second, that this result holds empirically across eight fields and over 127,000 observations. Third, that the marginal return inversion directs investment to the weakest dimension, collapsing the supposed trade-off between compassionate and efficient allocation.
+
+The genealogy of independent derivations spanning two centuries---from Sprengel's agricultural observations in 1826 through Cobb-Douglas production functions, series reliability engineering, O-Ring development theory, FDA pharmacokinetic models, cooperative game theory, and operational military interface design---provides evidence that the multiplicative structure is not an artifact of any particular field's assumptions. These derivations arrived from different starting axioms, in different disciplines, and converged on the same functional form. The present paper contributes the proof that this convergence is not coincidental: the multiplicative form is the only composition function that satisfies the structural constraints of emergence.
+
+The practical consequence extends beyond the mathematical result. Every composite metric, scoring rubric, and policy index that aggregates non-substitutable dimensions additively is making a systematic error. The error always biases in the same direction: it hides zeros inside averages, making failing systems appear adequate until they collapse. Democracy indices that score authoritarian regimes at 0.77. Risk frameworks that rate systems with catastrophic single-point failures as ``moderate risk.'' Development metrics that assign passing grades to countries with zero institutional quality but high capital investment. In each case, the additive model produces a number. The multiplicative model produces the correct number.
+
+The binding constraint principle---invest where the dimension is lowest---is not a policy recommendation. It is a mathematical theorem. The derivative $\partial f / \partial x_i = (f / x_i) \cdot \alpha_i$ is steepest when $x_i$ is smallest, and this is a structural consequence of the composition function, not a normative choice. The question for policymakers is not whether to invest at the bottom. The question is whether the dimensions they are composing are substitutable. If they are, add. If they are not, multiply. The theorem says there is no third option.
+
+Three directions for future work merit attention. First, the information geometry conjecture: if emergence corresponds to the volume element of the Fisher information metric on a statistical manifold, the multiplicative form acquires a geometric foundation deeper than the axiomatic approach. Second, the development of interaction-augmented multiplicative models for domains where cross-dimensional effects are significant. Third, the systematic audit of existing additive indices across policy domains---identifying which composite metrics are currently making the composition error described here, and quantifying the consequences.
+
+The multiplicative structure has been discovered nine times across two hundred years. The contribution of this paper is the proof that it had to be discovered, because it is the only answer to the question it addresses. The consequences of that proof for the institutions still using the wrong answer are immediate and actionable.
+
+
+% =====================================================================
+% APPENDICES
+% =====================================================================
+\appendix
+
+\section{Extended Proof Details}\label{app:proof}
+
+\subsection{The additive Cauchy equation on $\Rp$}
+
+The key step in the proof of Theorem~\ref{thm:main} is the solution of the additive Cauchy equation
+\begin{equation}\label{eq:addcauchy}
+H(st) = H(s) + H(t) \quad \text{for all } s, t > 0.
+\end{equation}
+Subject to the continuity of $H$, the unique solution is $H(x) = c \log x$ for some constant $c \in \R$.
+
+\begin{proof}
+Substituting $s = t$: $H(s^2) = 2H(s)$. By induction, $H(s^n) = nH(s)$ for all positive integers $n$. Setting $s = 1$: $H(1) = 0$. Setting $s = t^{-1}$: $H(t^{-1}) = -H(t)$. Therefore $H(s^n) = nH(s)$ for all $n \in \mathbb{Z}$. For rational exponents: $H(s^{p/q}) = (p/q)H(s)$ for all $p/q \in \mathbb{Q}$. Define $c = H(e)$. For any $x > 0$, write $x = e^{\log x}$. For rational $r$ approximating $\log x$: $H(e^r) = cr$. By continuity, $H(x) = c \log x$.
+\end{proof}
+
+\subsection{Independence of the ratio factors}
+
+In Step~2 of the proof, we assert that if $\prod_{i=1}^{N} r_i(x_i) = C$ (a constant), where each $r_i$ depends only on $x_i$, then each $r_i$ is constant.
+
+\begin{proof}
+Fix $j$ and fix all $x_i$ for $i \neq j$. Then $r_j(x_j) = C / \prod_{i \neq j} r_i(x_i)$, which is constant in $x_j$. Since the fixed values were arbitrary, $r_j$ does not depend on $x_j$.
+\end{proof}
+
+
+\section{Dataset Descriptions}\label{app:datasets}
+
+\subsection{Concrete compressive strength}
+\textit{Source:} UCI Machine Learning Repository \cite{yeh1998}. \textit{N:} 1,030. \textit{Dimensions:} Cement, blast furnace slag, fly ash, water, superplasticizer, coarse aggregate, fine aggregate, age. \textit{Output:} Compressive strength (MPa). \textit{Preprocessing:} Zero-cement observations removed; small constant ($\epsilon = 0.01$) added to zero-valued optional additives before log transformation.
+
+\subsection{Agriculture}
+\textit{Source:} World Bank API, 2018--2019. \textit{N:} 53. \textit{Dimensions:} Irrigation coverage (\%), fertilizer consumption (kg/ha). \textit{Output:} Cereal yield (kg/ha).
+
+\subsection{Infrastructure and GDP}
+\textit{Source:} World Bank API, 2018--2019. \textit{N:} 160. \textit{Dimensions:} Electricity access (\%), internet usage (\%), improved water access (\%). \textit{Output:} GDP per capita (USD, log-transformed).
+
+\subsection{Abalone age}
+\textit{Source:} UCI Machine Learning Repository. \textit{N:} 4,175. \textit{Dimensions:} Length, diameter, height, whole weight, shucked weight, viscera weight, shell weight. \textit{Output:} Ring count (age proxy).
+
+\subsection{California housing}
+\textit{Source:} \texttt{sklearn.datasets} (Pace and Barry, 1997). \textit{N:} 20,640. \textit{Dimensions:} Median income, average rooms, housing age, population, average occupancy. \textit{Output:} Median house value.
+
+\subsection{Child survival}
+\textit{Source:} World Bank API, 2018--2019. \textit{N:} 240. \textit{Dimensions:} Health expenditure per capita (USD), immunization rate (DPT, \%). \textit{Output:} Child survival rate ($1 - \text{under-5 mortality}$).
+
+\subsection{HDI components}
+\textit{Source:} World Bank API, 2018--2019. \textit{N:} 66. \textit{Dimensions:} Life expectancy (years), mean years of schooling. \textit{Output:} GNI per capita (PPP USD, log-transformed).
+
+\subsection{Penn World Table}
+\textit{Source:} Penn World Table 10.01 \cite{feenstra2015}. \textit{N:} 7,540. \textit{Dimensions:} Employment (millions), capital stock (millions 2017 USD). \textit{Output:} Real GDP (millions 2017 USD). All log-transformed.
+
+\subsection{Clinical EEG}
+\textit{Source:} Sleep-EDF Database \cite{goldberger2000}. \textit{N:} 94,182 epochs. \textit{Dimensions:} Spectral power in delta, theta, alpha, beta bands. \textit{Analysis:} Product vs.\ sum degradation rate across sleep-stage transitions.
+
+\subsection{Network synchronization}
+\textit{Source:} Kuramoto model on 67 empirical network topologies. \textit{Dimensions:} Coupling strength, network density, degree homogeneity. \textit{Output:} Synchronization order parameter.
+
+
+\section{CES Elasticity Estimation}\label{app:ces}
+
+The CES function $f(\mathbf{x}) = \left(\sum a_i x_i^\rho\right)^{1/\rho}$ nests the multiplicative ($\rho \to 0$), additive ($\rho = 1$), and Leontief ($\rho \to -\infty$) forms. We estimate $\rho$ by nonlinear least squares. As $\rho \to 0$, the likelihood surface flattens, making convergence difficult. We address this by reparameterizing to $\sigma = 1/(1-\rho)$ and using grid search over $\rho \in [-2, 1]$ before gradient-based refinement. Point estimates cluster in $[-0.3, 0.1]$ with wide confidence intervals, supporting strong complementarity without pinpointing the Cobb-Douglas limit precisely.
+
+
+% =====================================================================
+% BIBLIOGRAPHY
+% =====================================================================
+\begin{thebibliography}{99}
+
+\bibitem{aczel1966}
+Acz\'el, J. (1966). \textit{Lectures on Functional Equations and Their Applications}. Academic Press, New York.
+
+\bibitem{agree1957}
+Advisory Group on Reliability of Electronic Equipment (AGREE) (1957). \textit{Reliability of Military Electronic Equipment}. U.S.\ Department of Defense, Washington, D.C.
+
+\bibitem{cobb1928}
+Cobb, C.W.\ and Douglas, P.H. (1928). A theory of production. \textit{American Economic Review}, 18(1):139--165.
+
+\bibitem{coppedge2018}
+Coppedge, M., Gerring, J., Knutsen, C.H., et al. (2018). Measuring polyarchy across the globe, 1900--2017. \textit{Studies in Comparative International Development}, 53(4):440--468.
+
+\bibitem{easterly2006}
+Easterly, W. (2006). \textit{The White Man's Burden: Why the West's Efforts to Aid the Rest Have Done So Much Ill and So Little Good}. Penguin Press.
+
+\bibitem{fda2003}
+U.S.\ Food and Drug Administration (2003). \textit{Guidance for Industry: Bioavailability and Bioequivalence Studies for Orally Administered Drug Products---General Considerations}. Revision 1.
+
+\bibitem{feenstra2015}
+Feenstra, R.C., Inklaar, R., and Timmer, M.P. (2015). The next generation of the Penn World Table. \textit{American Economic Review}, 105(10):3150--3182.
+
+\bibitem{goldberger2000}
+Goldberger, A.L., et al. (2000). PhysioBank, PhysioToolkit, and PhysioNet: Components of a new research resource for complex physiologic signals. \textit{Circulation}, 101(23):e215--e220.
+
+\bibitem{goldratt1984}
+Goldratt, E.M. (1984). \textit{The Goal: A Process of Ongoing Improvement}. North River Press.
+
+\bibitem{hirschman1958}
+Hirschman, A.O. (1958). \textit{The Strategy of Economic Development}. Yale University Press.
+
+\bibitem{jones2011}
+Jones, C.I. (2011). Intermediate goods and weak links in the theory of economic development. \textit{American Economic Journal: Macroeconomics}, 3(2):1--28.
+
+\bibitem{kirsch2025}
+Kirsch, D. (2025). A beautiful mosaic: The algebra of shared flourishing. \textit{Personal essay}, available at \url{https://davidkirsch.me}.
+
+\bibitem{kremer1993}
+Kremer, M. (1993). The O-Ring theory of economic development. \textit{Quarterly Journal of Economics}, 108(3):551--575.
+
+\bibitem{luce1965}
+Luce, R.D. (1965). A ``fundamental'' axiomatization of multiplicative power relations among three variables. \textit{Philosophy of Science}, 32(3/4):301--309.
+
+\bibitem{milgrom1990}
+Milgrom, P. and Roberts, J. (1990). The economics of modern manufacturing: Technology, strategy, and organization. \textit{American Economic Review}, 80(3):511--528.
+
+\bibitem{pitz2026}
+Pitz, T. and Ferraz, V. (2026). Cohesion-sensitive power indices: Representation results for Banzhaf and Shapley values. \textit{arXiv preprint} arXiv:2603.27220.
+
+\bibitem{sprengel1826}
+Sprengel, C. (1826). Ueber Pflanzenhumus, Humuss\"aure und humussaure Salze. \textit{Archiv f\"ur die Gesammte Naturlehre}, 8:145--220.
+
+\bibitem{steinijans1993}
+Steinijans, V.W., Hauschke, D., and Jonkman, J.H.G. (1993). International harmonization of regulatory bioequivalence requirements. \textit{Clinical Research and Regulatory Affairs}, 10(4):203--216.
+
+\bibitem{vanderploeg1999}
+van der Ploeg, R.R., B\"ohm, W., and Kirkham, M.B. (1999). On the origin of the theory of mineral nutrition of plants and the law of the minimum. \textit{Soil Science Society of America Journal}, 63(5):1055--1062.
+
+\bibitem{yeh1998}
+Yeh, I-C. (1998). Modeling of strength of high-performance concrete using artificial neural networks. \textit{Cement and Concrete Research}, 28(12):1797--1808.
+
+\end{thebibliography}
+
+\end{document}

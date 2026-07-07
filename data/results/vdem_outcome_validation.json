@@ -1,0 +1,151 @@
+{
+  "horizons": {
+    "5_year": {
+      "hidden_zero": {
+        "total": 2586,
+        "with_future_data": 1674,
+        "stayed_autocratic": 1525,
+        "democratized": 149,
+        "pct_stayed_autocratic": 91.1,
+        "pct_democratized": 8.9
+      },
+      "agreement_democratic": {
+        "total": 3405,
+        "with_future_data": 3119,
+        "breakdown": 49,
+        "stayed_democratic": 3070,
+        "pct_breakdown": 1.6,
+        "pct_stayed_democratic": 98.4
+      },
+      "agreement_low": {
+        "total": 12451,
+        "with_future_data": 7622
+      },
+      "key_comparison": {
+        "hidden_zero_autocratic_rate": 91.1,
+        "agreement_dem_breakdown_rate": 1.6,
+        "note": "If hidden-zero countries remain autocratic at much higher rates than agreement-democratic countries break down, the multiplicative index is the better predictor."
+      }
+    },
+    "10_year": {
+      "hidden_zero": {
+        "total": 2586,
+        "with_future_data": 1625,
+        "stayed_autocratic": 1358,
+        "democratized": 267,
+        "pct_stayed_autocratic": 83.6,
+        "pct_democratized": 16.4
+      },
+      "agreement_democratic": {
+        "total": 3405,
+        "with_future_data": 2820,
+        "breakdown": 75,
+        "stayed_democratic": 2745,
+        "pct_breakdown": 2.7,
+        "pct_stayed_democratic": 97.3
+      },
+      "agreement_low": {
+        "total": 12451,
+        "with_future_data": 7641
+      },
+      "key_comparison": {
+        "hidden_zero_autocratic_rate": 83.6,
+        "agreement_dem_breakdown_rate": 2.7,
+        "note": "If hidden-zero countries remain autocratic at much higher rates than agreement-democratic countries break down, the multiplicative index is the better predictor."
+      }
+    }
+  },
+  "group_sizes": {},
+  "extreme_case_outcomes": [
+    {
+      "country": "Hong Kong",
+      "trajectory": [
+        {
+          "year": 1990,
+          "api": 0.526,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.872
+        },
+        {
+          "year": 1995,
+          "api": 0.754,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.897
+        },
+        {
+          "year": 2000,
+          "api": 0.743,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.847
+        },
+        {
+          "year": 2005,
+          "api": 0.738,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.847
+        },
+        {
+          "year": 2010,
+          "api": 0.739,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.834
+        },
+        {
+          "year": 2015,
+          "api": 0.691,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.771
+        },
+        {
+          "year": 2020,
+          "api": 0.509,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.428
+        }
+      ]
+    },
+    {
+      "country": "Japan",
+      "trajectory": [
+        {
+          "year": 1950,
+          "api": 0.75,
+          "mpi": 0,
+          "regime": 0,
+          "elecoff": 0,
+          "freexp": 0.805
+        },
+        {
+          "year": 1955,
+          "api": 0.918,
+          "mpi": 0.705,
+          "regime": 3,
+          "elecoff": 1,
+          "freexp": 0.918
+        },
+        {
+          "year": 1960,
+          "api": 0.927,
+          "mpi": 0.732,
+          "regime": 3,
+          "elecoff": 1,
+          "freexp": 0.918
+        }
+      ]
+    }
+  ]
+}
