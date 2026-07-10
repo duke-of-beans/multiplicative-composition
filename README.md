@@ -1,6 +1,8 @@
-# Multiplicative Composition of Independent Dimensions in Emergent Systems
+# Multiplicative Composition
 
 A mathematical investigation into why independent dimensions compose multiplicatively - not additively - to produce emergent properties, and why this structure appears across unrelated domains.
+
+Paper 1: **Axiomatic Characterization of Multiplicative Aggregation: On Zero-Collapse and the O-Ring Inversion** (papers/paper1/paper_v2.tex)
 
 ## The Claim
 

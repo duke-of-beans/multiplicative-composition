@@ -1,5 +1,5 @@
 # Multiplicative-Composition — BACKLOG
-**Last Updated:** 2026-07-07
+**Last Updated:** 2026-07-07 (end of session)
 **Canonical. Single source of truth.**
 
 ---
@@ -13,6 +13,8 @@
 ## P0 — Paper 1 v2 Pending Edit
 - [ ] Swap Section 6.6 text with updated info-geo section (paper_v2_infogeo_update.txt) — David review needed
 - [ ] Add \bibitem{kirsch2026ig} reference for Paper 2
+- [x] Abstract hardening: hedge removed, thirteen-test accounting, NBA boundary test added (paper_v2.tex) -- 2026-07-10
+- [x] Retitled Paper 1 v2 ("Axiomatic Characterization of Multiplicative Aggregation: On Zero-Collapse and the O-Ring Inversion"), paper1_v2.docx regenerated via pandoc, stale versions archived to papers\archive -- 2026-07-10
 
 ## P1 — Paper 3: Zero-Collapse and Resource Allocation
 - [x] Recon/research: Housing First data, austerity natural experiments, World Bank panel — 2026-07-07
@@ -34,6 +36,7 @@
 - [x] Paper 4 v1 DRAFTED — paper4_v1.tex, 337 lines, 7 sections, 6 tables, 9 references — 2026-07-07
 - [ ] Credit score analysis (Lending Club public dataset)
 - [ ] ESG composite analysis
+- [ ] V-Dem × ACLED external outcome validation
 - [ ] David review → iterate
 
 ## P1 — Paper 1 Retroactive Updates (from Paper 3 research)
@@ -41,6 +44,17 @@
 - [x] Updated Section 5.6 (O-Ring Inversion: binding constraint principle connection)
 - [x] Updated Discussion (BRAC graduation RCT + fiscal multiplier evidence)
 - [x] Regenerated paper1_v2.docx via pandoc — 2026-07-07
+
+## P1 — HIRM × MC Integration
+- [x] Run Paper 4 additive audit on Sleep-EDF data — 94,182 epochs, mult beats add 82.9% vs 80.1% — 2026-07-07
+- [x] Identify "hidden zero" epochs — 2,023 found (2.1%), concentrated in N2 light sleep — 2026-07-07
+- [x] R independence analysis: Cohen's d = -0.020 (zero), optimal exponent = 0, Φ-D r=0.822 — 2026-07-07
+- [x] Exponent fitting: best Φ^2 × R^0 × D^0.2, unit exponents suboptimal — 2026-07-07
+- [x] HIRM BACKLOG.md and STATUS.md updated with audit results — 2026-07-07
+- [x] Audit report: HIRM/Empirical/Results/MC_Additive_Audit/ADDITIVE_AUDIT_REPORT.md — 2026-07-07
+- [ ] Paper 2 methodology for HIRM v2: Fisher metric on EEG manifold → discover axes from data
+- [ ] Update HIRM paper to cite Papers 1-4 as mathematical foundation
+- [x] Analysis written: papers/handoffs/HIRM_IMPLICATIONS_FROM_PAPER4.md — 2026-07-07
 
 ## P2 — HIRM Paper
 - [ ] Adversarial prior art deep-read: Tononi IIT 2004/2008, Dehaene GNW 2011, Friston FEP 2010
@@ -52,6 +66,11 @@
 - [ ] CCS: resolve additive contradiction or justify substitutability
 
 ## DONE
+- [x] Website davidkirsch.me/research MC section: body copy updated (law framing, 9 derivations, additive audit results, resource allocation, applications), all 4 papers listed with PDF links — 2026-07-07
+- [x] Website committed, pushed, deployed to Vercel (READY) — 2026-07-07
+- [x] GitHub duke-of-beans/multiplicative-composition: description updated, topics updated (composition-law, additive-audit, v-dem), 43 files pushed — 2026-07-07
+- [x] HIRM implications analysis written (HIRM_IMPLICATIONS_FROM_PAPER4.md) — 2026-07-07
+- [x] Session handoff created (SESSION_HANDOFF_20260707.md) — 2026-07-07
 - [x] Paper 1 retroactive Paper 4 cross-refs: 5 edits (additive default, V-Dem #8, institutional default, conclusion, bibitem) — 2026-07-07
 - [x] Paper 3 retroactive Paper 4 cross-ref: institutional additive default + bibitem — 2026-07-07
 - [x] Paper 4 outcome validation: 91.1% hidden zeros autocratic at 5yr, Hong Kong case study — 2026-07-07
