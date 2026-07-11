@@ -1,0 +1,12 @@
+# junk
+__git_status.txt
+__gitstatus.txt
+_gitstatus.txt
+*.tmp
+
+# large raw datasets (documented in appendix; sources cited in paper)
+data/datasets/
+
+# base64 transfer artifacts
+data/results/pdf_b64/
+data/results/all_papers_b64.json

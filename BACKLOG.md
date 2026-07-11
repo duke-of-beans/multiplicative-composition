@@ -6,6 +6,7 @@
 
 ## P0 — arXiv Submission
 - [ ] Get arXiv endorsement for econ.TH (code 4EWXUO, target Pitz & Ferraz)
+  - Pitz: thomas.pitz@hochschule-rhein-waal.de | Ferraz: vinicius@singularity.inc | either alone suffices | hook: coalition feasibility as non-substitutable dimension
 - [ ] Submit Paper 1 v2 (paper_v2.tex) — reframed as law, 9 independent derivations
 - [ ] Submit Paper 2 v1 (paper2_v1.tex) — information geometry, companion paper
 - [ ] Update davidkirsch.me research page with arXiv links
