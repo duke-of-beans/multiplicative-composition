@@ -44,7 +44,7 @@
 % --- Title ---
 \title{\textbf{Axiomatic Characterization of Multiplicative Aggregation:\\ On Zero-Collapse and the O-Ring Inversion}}
 
-\author{David Kirsch\\
+\author{David E. Kirsch\\
 \textit{Independent Researcher}\\
 Simi Valley, California\\
 \texttt{david@davidkirsch.me}\\
@@ -531,9 +531,13 @@ Empirical evidence directly supporting the multiplicative allocation principle h
 
 The multiplicative framework's predictions depend on correct specification of the non-substitutable dimensions. As the gender equity test demonstrates ($\Delta = -0.141$), the framework performs worse than additive when the chosen dimensions do not capture the actual preconditions. This is a standard specification problem, but it has a diagnostic upside: when the multiplicative model underperforms, it signals that the dimensional specification may be incorrect.
 
-\subsection{Future work: information geometry}
+\subsection{The information-geometric derivation}
 
-A suggestive connection links the multiplicative form to information geometry. On a statistical manifold parameterized by the dimension values, the Fisher information metric decomposes multiplicatively along independent parameter axes. If emergence corresponds to information volume on this manifold---specifically, if the appropriate measure is the square root of the determinant of the Fisher information matrix---then the multiplicative form follows from the geometry of the information space itself. We regard this connection as conjectural but note that preliminary numerical verification recovers the theoretical exponents to three decimal places. If established, this derivation would ground the uniqueness result in the structure of information rather than in axioms about composition.
+A deeper connection links the multiplicative form to information geometry. On a product statistical manifold $\mathcal{M} = \mathcal{M}_1 \times \cdots \times \mathcal{M}_N$ parameterized by the dimension values, the Fisher information metric is diagonal for independent dimensions. The Riemannian volume density $\sqrt{\det g}$ then factorizes multiplicatively: $\sqrt{\det g(\boldsymbol{\theta})} = \prod \sqrt{g_{ii}(\theta_i)}$. This factorization is a standard result in Riemannian geometry and establishes that informational volume composes multiplicatively for independent dimensions---unconditionally, without assumptions about functional form.
+
+To recover the specific power-law form, we construct a statistical model of $N$ independent observation channels with power-law response functions $\mu_i(\theta_i) = \theta_i^{q_i}$, $q_i > 1$, under which the Fisher information is $g_{ii} = c_i \theta_i^{2(q_i - 1)}$ and the volume density is $\sqrt{\det g} = k \prod \theta_i^{\alpha_i}$ with $\alpha_i = q_i - 1$---recovering the multiplicative composition law exactly. Under this model, all five axioms of the present paper are consequences of the geometry, not independent postulates. A companion paper \cite{kirsch2026ig} develops this derivation in full.
+
+A suggestive duality emerges: on a product manifold, scalar curvature is additive ($R(M_1 \times M_2) = R(M_1) + R(M_2)$) while volume density is multiplicative. This gives the scope condition geometric content---substitutable dimensions compose through curvature (additive), non-substitutable dimensions compose through volume (multiplicative)---and suggests that the additive-vs-multiplicative distinction is not a modeling choice but a geometric fact about which invariant captures the relevant physical quantity.
 
 
 % =====================================================================
@@ -549,7 +553,7 @@ The practical consequence extends beyond the mathematical result. Every composit
 
 The binding constraint principle---invest where the dimension is lowest---is not a policy recommendation. It is a mathematical theorem. The derivative $\partial f / \partial x_i = (f / x_i) \cdot \alpha_i$ is steepest when $x_i$ is smallest, and this is a structural consequence of the composition function, not a normative choice. The question for policymakers is not whether to invest at the bottom. The question is whether the dimensions they are composing are substitutable. If they are, add. If they are not, multiply. The theorem says there is no third option.
 
-Three directions for future work merit attention. First, the information geometry conjecture: if emergence corresponds to the volume element of the Fisher information metric on a statistical manifold, the multiplicative form acquires a geometric foundation deeper than the axiomatic approach. Second, the development of interaction-augmented multiplicative models for domains where cross-dimensional effects are significant. Third, the systematic audit of existing additive indices across policy domains. A companion paper \cite{kirsch2026audit} initiates this program, auditing V-Dem and the HDI and demonstrating a 9.6\% hidden-zero rate in the world's most comprehensive democracy dataset.
+Three directions for future work merit attention. First, the information-geometric foundation: the companion paper \cite{kirsch2026ig} derives the multiplicative form from the Fisher volume element under power-law response channels; extending the derivation to general response functions remains open. Second, the development of interaction-augmented multiplicative models for domains where cross-dimensional effects are significant. Third, the systematic audit of existing additive indices across policy domains. A companion paper \cite{kirsch2026audit} initiates this program, auditing V-Dem and the HDI and demonstrating a 9.6\% hidden-zero rate in the world's most comprehensive democracy dataset.
 
 The multiplicative structure has been discovered nine times across two hundred years. The contribution of this paper is the proof that it had to be discovered, because it is the only answer to the question it addresses. The consequences of that proof for the institutions still using the wrong answer are immediate and actionable.
 
@@ -659,7 +663,7 @@ Hirschman, A.O. (1958). \textit{The Strategy of Economic Development}. Yale Univ
 Jones, C.I. (2011). Intermediate goods and weak links in the theory of economic development. \textit{American Economic Journal: Macroeconomics}, 3(2):1--28.
 
 \bibitem{kirsch2025}
-Kirsch, D. (2025). A beautiful mosaic: The algebra of shared flourishing. \textit{Personal essay}, available at \url{https://davidkirsch.me}.
+Kirsch, D. E. (2025). A beautiful mosaic: The algebra of shared flourishing. \textit{Personal essay}, available at \url{https://davidkirsch.me}.
 
 \bibitem{kremer1993}
 Kremer, M. (1993). The O-Ring theory of economic development. \textit{Quarterly Journal of Economics}, 108(3):551--575.
@@ -698,7 +702,10 @@ Hausmann, R., Rodrik, D., and Velasco, A. (2005). Growth diagnostics. Working pa
 Jones, G. (2013). The O-Ring sector and the foolproof sector: An explanation for cross-country income differences. \textit{Journal of Economic Behavior \& Organization}, 87:183--199.
 
 \bibitem{kirsch2026audit}
-Kirsch, D. (2026). The additive audit: Systematic measurement error from additive aggregation of non-substitutable dimensions. \textit{Working paper}.
+Kirsch, D. E. (2026). The additive audit: Systematic measurement error from additive aggregation of non-substitutable dimensions. \textit{Working paper}.
+
+\bibitem{kirsch2026ig}
+Kirsch, D. E. (2026). Emergence as information volume on statistical manifolds. \textit{Companion paper, submitted concurrently}.
 
 \end{thebibliography}
 

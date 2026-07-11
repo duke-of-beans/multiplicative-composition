@@ -14,4 +14,4 @@ Contents:
 Not archived (still active):
 - paper_v2_infogeo_update.txt - pending Section 6.6 swap, awaiting David review (see BACKLOG P0).
 
-Timestamped safety backups from the 2026-07-10 edit session live in D:\Temp.
+Timestamped safety backups from the 2026-07-10 edit session live in D:\Temp.- 2026-07-06_paper_v2_infogeo_update_APPLIED.txt - Section 6.6 info-geo replacement text. APPLIED to paper_v2.tex on 2026-07-10 (header renamed to 'The information-geometric derivation', kirsch2026ig bibitem added). Kept for provenance.

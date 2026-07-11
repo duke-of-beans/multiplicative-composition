@@ -11,8 +11,9 @@
 - [ ] Update davidkirsch.me research page with arXiv links
 
 ## P0 — Paper 1 v2 Pending Edit
-- [ ] Swap Section 6.6 text with updated info-geo section (paper_v2_infogeo_update.txt) — David review needed
-- [ ] Add \bibitem{kirsch2026ig} reference for Paper 2
+- [x] Swap Section 6.6 text with updated info-geo section (paper_v2_infogeo_update.txt) — David review needed
+- [x] Add \bibitem{kirsch2026ig} reference for Paper 2 - 2026-07-10
+- [x] Standardize author to David E. Kirsch across all four papers - 2026-07-10
 - [x] Abstract hardening: hedge removed, thirteen-test accounting, NBA boundary test added (paper_v2.tex) -- 2026-07-10
 - [x] Retitled Paper 1 v2 ("Axiomatic Characterization of Multiplicative Aggregation: On Zero-Collapse and the O-Ring Inversion"), paper1_v2.docx regenerated via pandoc, stale versions archived to papers\archive -- 2026-07-10
 
