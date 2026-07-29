@@ -9,4 +9,4 @@ data/datasets/
 
 # base64 transfer artifacts
 data/results/pdf_b64/
-data/results/all_papers_b64.json
+data/results/all_papers_b64.jsonscripts/_push_*.py 

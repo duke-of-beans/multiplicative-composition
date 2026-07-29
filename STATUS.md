@@ -1,8 +1,10 @@
 # Multiplicative-Composition — STATUS
-**Last Updated:** 2026-07-10 (end of session)
+**Last Updated:** 2026-07-16
 
 ## Current State
 Paper 1 v2 is SUBMISSION-READY: final title, hardened abstract, thirteen-test accounting, Section 6.6 information-geometric derivation applied, kirsch2026ig bibitem live, author standardized to David E. Kirsch. Papers 2-4 at v1 with David E. Kirsch author blocks and corrected Paper 1 title in bibliographies. All public surfaces cohesive.
+
+**New (2026-07-16):** RF/Smith Chart convergent derivation identified as potentially strongest MC validation domain. Friis equation is MC with domain-specific dimensions; dB = log-transform; T-matrix cascade = matrix MC. Three new backlog items: (1) P1 RF prominence in Paper 1, (2) P1 complex-valued MC axioms (Paper 5 candidate), (3) P2 cross-domain tool transfer tests ("Smith Chart analogs" for economics, consciousness, other domains). "Black magic" diagnostic hypothesis: domains described as "black magic" are harboring unformalized MC.
 
 ## Author Standard
 All academic work and citations: **David E. Kirsch** (disambiguation from nutritionist David Kirsch and father David Kirsch). arXiv account must register under this name at submission. Site branding remains "David Kirsch".
@@ -45,3 +47,6 @@ All academic work and citations: **David E. Kirsch** (disambiguation from nutrit
 - arXiv account registration as David E. Kirsch
 - Submit Paper 1 (+ Paper 2 companion) on endorsement
 - Optional: MiKTeX install for print-quality local PDF, or wait for arXiv typeset
+- Draft RF convergent derivation section for Paper 1 v2 (2-3 paragraphs, Friis 1946 + Smith 1939)
+- Begin complex-valued MC axiom formalization (literature search: Aczél on ℂ, complex Cobb-Douglas)
+- Evaluate: is the Smith Chart derivable from Paper 2's Fisher metric?

@@ -1,5 +1,5 @@
 # Multiplicative-Composition — BACKLOG
-**Last Updated:** 2026-07-07 (end of session)
+**Last Updated:** 2026-07-16
 **Canonical. Single source of truth.**
 
 ---
@@ -17,6 +17,39 @@
 - [x] Standardize author to David E. Kirsch across all four papers - 2026-07-10
 - [x] Abstract hardening: hedge removed, thirteen-test accounting, NBA boundary test added (paper_v2.tex) -- 2026-07-10
 - [x] Retitled Paper 1 v2 ("Axiomatic Characterization of Multiplicative Aggregation: On Zero-Collapse and the O-Ring Inversion"), paper1_v2.docx regenerated via pandoc, stale versions archived to papers\archive -- 2026-07-10
+
+## P1 — RF Convergent Derivation (Paper 1 prominence)
+- [ ] Add RF/Friis as lead validation example in Paper 1 — not buried in empirical table, prominent in intro or early discussion
+  - Convergent derivation argument: MC from Aczél axioms, RF from Maxwell's equations, arrive at same form independently
+  - Friis equation Pᵣ = Pₜ · Gₜ · Gᵣ · (λ/4πd)² IS the MC equation with domain-specific dimensions
+  - dB arithmetic = MC log-transform; T-matrix cascade = matrix MC; link budget = separable dimension product
+  - Strongest validation row: physics-forced, no modeling choice, 80+ years of engineering validation
+  - Cite: Friis 1946, Smith 1939
+- [ ] Draft 2-3 paragraph RF section for Paper 1 v2 — structural argument, not dataset analysis
+- [ ] Consider RF as opening example in abstract or intro ("the same law independently derived from Maxwell's equations...")
+
+## P1 — Complex-Valued MC Extension (Paper 5 candidate)
+- [ ] Formalize axioms for complex-valued multiplicative composition (ℂⁿ → ℂ)
+  - Current axioms operate on ℝ₊ⁿ → ℝ₊ — what happens when dimensions are complex-valued?
+  - Möbius transformation Γ = (Z−Z₀)/(Z+Z₀) is a ratio of complex numbers — multiplicative structure in richer algebra
+  - T-matrix cascade T_total = T₁·T₂·…·Tₙ is matrix multiplication — multiplicative composition generalized to matrices
+  - What are the complex analogs of zero-collapse, homogeneity, separability?
+- [ ] Investigate: is the Smith Chart the domain-specific realization of the Fisher metric for electromagnetic systems?
+  - If Paper 2's information geometry derivation *generates* the Smith Chart (not just analogous), that's a result
+  - Would mean MC predicts the existence of the Smith Chart from axioms alone
+- [ ] Literature search: complex Cobb-Douglas, complex functional equations, Aczél on ℂ
+- [ ] Determine if this is a standalone Paper 5 or an extension of Paper 2
+
+## P2 — Cross-Domain Tool Transfer Tests
+- [ ] "Smith Chart analogs" hypothesis: if MC holds across domains, RF-equivalent tools should be constructible
+  - RF has: dB (log-transform), S-parameters (matrix generalization), Smith Chart (conformal mapping), matching networks (optimization)
+  - Test: can you build a "Smith Chart for development economics"? HDI dimensions, binding constraint path, conformal mapping to normalized space
+  - Test: can you build a "Smith Chart for consciousness"? HIRM v2 dimensions (current architecture, NOT v1 C=Φ×R×D), binding constraint visualization
+  - Test: can you build equivalent tools for any MC-validated domain?
+- [ ] "Black magic" diagnostic: survey other domains described as "black magic" / "dark art" for latent MC structure
+  - Candidates: ML hyperparameter tuning, analog circuit design, professional cooking, clinical dosing, organizational management
+  - Prediction: "black magic" label = unformalized multiplicative composition
+- [ ] If tool transfer works in any domain, that's strong evidence for MC universality — write up as validation
 
 ## P1 — Paper 3: Zero-Collapse and Resource Allocation
 - [x] Recon/research: Housing First data, austerity natural experiments, World Bank panel — 2026-07-07
