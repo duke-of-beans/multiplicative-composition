@@ -18,6 +18,12 @@
 - [x] Abstract hardening: hedge removed, thirteen-test accounting, NBA boundary test added (paper_v2.tex) -- 2026-07-10
 - [x] Retitled Paper 1 v2 ("Axiomatic Characterization of Multiplicative Aggregation: On Zero-Collapse and the O-Ring Inversion"), paper1_v2.docx regenerated via pandoc, stale versions archived to papers\archive -- 2026-07-10
 
+## P1 — POSTCOG Operational Validation (Paper 4 extension)
+- [x] POSTCOG MC prediction test: 139 AUTONOMIC sprints, mult 100% vs add 94.1% abort detection, 49% better discrimination — 2026-08-09
+- [ ] Add POSTCOG results to Paper 4 as third validation domain (governance, development, operational action-safety)
+- [ ] Write up methodology: same dimensions scored multiplicatively vs additively, compared against known outcomes
+- [ ] Note for Paper 4: this is the first MC validation in a PRODUCTION SYSTEM with real-time decisions, not retrospective dataset analysis
+
 ## P1 — RF Convergent Derivation (Paper 1 prominence)
 - [ ] Add RF/Friis as lead validation example in Paper 1 — not buried in empirical table, prominent in intro or early discussion
   - Convergent derivation argument: MC from Aczél axioms, RF from Maxwell's equations, arrive at same form independently
@@ -135,3 +141,4 @@
 - [x] ALGEBRA_OF_EMERGENCE.md research document — 2026-06-24
 - [x] WHETSTONE_ADVERSARIAL.md — 2026-06-24
 - [x] research/PAPER2_STEP3_ANALYSIS.md — adversarial analysis of info geometry Step 3 — 2026-07-07
+- [x] POSTCOG operational validation: 139 sprints, mult 100% vs add 94.1%, 49% better discrimination — third MC validation domain — 2026-08-09

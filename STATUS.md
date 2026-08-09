@@ -1,13 +1,15 @@
 # Multiplicative-Composition — STATUS
-**Last Updated:** 2026-07-16
+**Last Updated:** 2026-08-09
 
 ## Current State
-Paper 1 v2 is SUBMISSION-READY: final title, hardened abstract, thirteen-test accounting, Section 6.6 information-geometric derivation applied, kirsch2026ig bibitem live, author standardized to David E. Kirsch. Papers 2-4 at v1 with David E. Kirsch author blocks and corrected Paper 1 title in bibliographies. All public surfaces cohesive.
+Paper 1 v2 is SUBMISSION-READY. Papers 2-4 at v1.
 
-**New (2026-07-16):** RF/Smith Chart convergent derivation identified as potentially strongest MC validation domain. Friis equation is MC with domain-specific dimensions; dB = log-transform; T-matrix cascade = matrix MC. Three new backlog items: (1) P1 RF prominence in Paper 1, (2) P1 complex-valued MC axioms (Paper 5 candidate), (3) P2 cross-domain tool transfer tests ("Smith Chart analogs" for economics, consciousness, other domains). "Black magic" diagnostic hypothesis: domains described as "black magic" are harboring unformalized MC.
+**New (2026-08-09):** THIRD EMPIRICAL VALIDATION of MC hidden-zero structure — operational system, not dataset. POSTCOG action-safety engine tested multiplicative vs additive scoring against 139 real AUTONOMIC sprints (17 aborted, 122 completed). Results: multiplicative caught 17/17 aborts (100%) vs additive 16/17 (94.1%). Discrimination gap: multiplicative separates aborted from completed by 0.100 vs additive 0.067 — 49% better. Additive average = 0.785 (dangerously close to auto-approve), multiplicative average = 0.329 (properly conservative). Additive averaging dilutes risk dimensions; multiplicative doesn't allow it. Three independent validations now: V-Dem (governance, 2,586 hidden zeros), HDI (development, education binding), POSTCOG (operational action-safety, 139 sprints). Code at D:\Projects\POSTCOG\tests\mc-prediction.test.ts.
+
+**New (2026-07-16):** RF/Smith Chart convergent derivation identified. Friis equation is MC with domain-specific dimensions. Three new backlog items for RF, complex-valued axioms, cross-domain tool transfer.
 
 ## Author Standard
-All academic work and citations: **David E. Kirsch** (disambiguation from nutritionist David Kirsch and father David Kirsch). arXiv account must register under this name at submission. Site branding remains "David Kirsch".
+All academic work and citations: **David E. Kirsch**. arXiv endorsement code 4EWXUO (Pitz & Ferraz).
 
 ## Papers
 | Paper | Title | Status | File |
@@ -17,36 +19,18 @@ All academic work and citations: **David E. Kirsch** (disambiguation from nutrit
 | 3 | Zero-Collapse and Resource Allocation | v1 draft | papers/paper3/paper3_v1.tex |
 | 4 | The Additive Audit | v1 draft | papers/paper4/paper4_v1.tex |
 
-## Paper 1 v2 — what it now contains
-- Title: canon-vocabulary head, O-Ring hook tail (Cambridge-sneer-proof)
-- Abstract: thirteen datasets, 7-of-8 primary + tie, three boundary tests framed as discriminant validity
-- Section 6.6 -> "The information-geometric derivation": factorization stated at theorem strength, power-law channel model, curvature-volume duality; conclusion harmonized (conjecture -> foundation)
-- Dangling \cite{kirsch2026ig} fixed (4 refs: 3 cites + bibitem)
-- Supplementary section: "the ties are not noise; they are the boundary behaving as specified"
-
-## Public Surfaces (all verified live 2026-07-10)
-- Site: davidkirsch.me/research — new title, thirteen-test line, regenerated PDF (David E. Kirsch), sitemap lastmod. Vercel READY.
-- GitHub: duke-of-beans/multiplicative-composition — README program-name H1 + Paper 1 title line, repo description updated to thirteen-dataset / O-Ring-inversion wording (via API)
-- Wayback: Paper 1 PDF snapshotted 2026-07-11 01:14:21 UTC (neutral third-party priority timestamp)
-- Note: Papers 2-4 site PDFs still carry "David Kirsch" internally — swap for arXiv-typeset versions at submission (typography preservation)
+## Empirical Validations (3 domains, same structural prediction)
+| Domain | Dataset | Key Result |
+|--------|---------|------------|
+| Governance | V-Dem v16 (26,954 obs) | 2,586 hidden zeros (9.6%), 91.1% stayed autocratic at 5yr |
+| Development | HDI (206 countries × 7yr) | Education binding 100%, mean gap 0.007 |
+| **Operational** | **POSTCOG/AUTONOMIC (139 sprints)** | **100% vs 94.1% abort detection, 49% better discrimination** |
 
 ## Endorsement (P0)
 - Code: 4EWXUO, target econ.TH
-- **Thomas Pitz** — Hochschule Rhein-Waal, Kleve — thomas.pitz@hochschule-rhein-waal.de (cohesion-index lineage since Lempp & Pitz 2017)
-- **Vinicius Ferraz** — KIT + Singularity AI Research Vienna — vinicius@singularity.inc (runs replication repo, ships Lean 4 verification)
-- Their preprint says "Comments welcome"; either one alone can endorse; email hook = coalition feasibility as non-substitutable dimension / Luce-type representations as possible special case
-- Ruled out: Mercer Barrows III (no PhD/arXiv record); Andrew Schneider (single 2016 paper, submitted by Dadarlat, outside endorsement window — repurpose as technical reviewer + Dadarlat/Pennig bridge)
-- Sequencing: endorsement email = seeding email; priority already protected by GitHub commits + Wayback + Vercel records
+- Thomas Pitz — thomas.pitz@hochschule-rhein-waal.de
+- Vinicius Ferraz — vinicius@singularity.inc
 
 ## Blockers
-- Endorsement email send (draft on request, signs David E. Kirsch)
-- WHETSTONE full-abstract pass (Claude API credits exhausted)
-
-## Next Session
-- Draft + send Pitz & Ferraz endorsement/seeding email
-- arXiv account registration as David E. Kirsch
-- Submit Paper 1 (+ Paper 2 companion) on endorsement
-- Optional: MiKTeX install for print-quality local PDF, or wait for arXiv typeset
-- Draft RF convergent derivation section for Paper 1 v2 (2-3 paragraphs, Friis 1946 + Smith 1939)
-- Begin complex-valued MC axiom formalization (literature search: Aczél on ℂ, complex Cobb-Douglas)
-- Evaluate: is the Smith Chart derivable from Paper 2's Fisher metric?
+- Endorsement email send
+- WHETSTONE full-abstract pass
