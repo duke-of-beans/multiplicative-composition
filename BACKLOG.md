@@ -142,3 +142,60 @@
 - [x] WHETSTONE_ADVERSARIAL.md — 2026-06-24
 - [x] research/PAPER2_STEP3_ANALYSIS.md — adversarial analysis of info geometry Step 3 — 2026-07-07
 - [x] POSTCOG operational validation: 139 sprints, mult 100% vs add 94.1%, 49% better discrimination — third MC validation domain — 2026-08-09
+
+## PLEXUS Research Session — 2026-08-26
+
+### Black Magic Diagnostic (Paper 5 candidate)
+Hypothesis: practitioner vocabulary ("black magic"/"dark art") reliably detects domains where MC applies but hasn't been formalized.
+
+**18 domains tested via PLEXUS crossref sweep:**
+1. RF/Analog Engineering — ✅ PROVEN (Smith Chart = MC, 5 layers)
+2. ML Hyperparameter Tuning — ✅ STRONG (LR=0 collapse, interactions documented)
+3. Professional Cooking — ✅ STRONG (Salt/Fat/Acid/Heat, Maillard = multiplicative)
+4. Clinical Dosing — ✅ PROVEN (FDA multiplicative bioavailability model)
+5. Organizational Management — ✅ STRONG ("culture eats strategy" = zero-collapse)
+6. Audio Mixing/Mastering — ✅ STRONG (gain staging = cascade)
+7. Wine/Fermentation — ✅ MODERATE (yeast×temp×pH interact)
+8. Soil Science/Agriculture — ✅ PROVEN (Liebig's Law IS MC)
+9. Ceramics/Glassblowing — ✅ STRONG ("Touching tacit knowledge" 2017)
+10. Negotiation/Diplomacy — ✅ MODERATE (dimensions may be substitutable)
+11. Welding — ✅ (heat×speed×angle×material×gas)
+12. Espresso — ✅ STRONG (grind×dose×temp×pressure×time, 2024 paper)
+13. Perfumery — ✅ (top×middle×base notes)
+14. Color Grading — ✅ MODERATE
+15. Sourdough — ✅ STRONG (dead starter = zero-collapse)
+16. Anesthesiology — ✅ PROVEN ("Quantifying Anesthetic Drug Interaction" 1995, isobolographic analysis)
+17. Fly Fishing — ✅ MODERATE
+18. Piano Tuning — ✅ (frequency ratios are multiplicative)
+- Weather Forecasting — ❌ chaos, not MC (refines hypothesis)
+
+**Refined hypothesis:** "black magic" detects non-additive composition. Discriminator: independent dimensions → MC, coupled dimensions → chaos.
+
+### Key Papers Found
+- [ ] READ: "Quantifying Anesthetic Drug Interaction" (1995) — isobolographic analysis proves non-additive drug interaction
+- [ ] READ: "Isobolographic Analysis of Propofol-Thiopental Hypnotic Interaction" (1999) — additive vs non-additive test for common anesthetic drugs
+- [ ] READ: "Assessment of multiplicative utility functions via holistic judgments" (1979) — multiplicative vs additive in org contexts
+- [ ] READ: "CHOOSING BETWEEN AN ADDITIVE AND A MULTIPLICATIVE MODEL" (1979) — exact MC question asked 45 years ago
+- [ ] READ: "Setting conservation priorities: Decision science versus additive scoring" (2014) — additive scoring failure case
+- [ ] READ: "Multiplicative marketing mix modeling" (2019) — field already uses multiplicative composition
+- [ ] READ: "On the mechanistic foundation and limit of Liebig's law of the minimum" (2021)
+
+### Endorsement Candidate #2
+- [ ] Contact Prof. Bijaya K. Mangaraj (XLRI Jamshedpur, mangaraj@xlri.ac.in)
+  - Paper: "Non-Substitutable Dimensions in Modelling Socio-Economic Index" (2024, SSRN 4727246)
+  - Uses MC's core concept for HDI without the axiomatic proof
+  - MC Paper 1 provides the mathematical foundation his paper lacks
+  - His δ substitutability measure maps to MC's scope condition
+
+### MESA Society Simulation
+- [ ] Build MESA (Python) agent-based simulation: two economies with identical parameters
+  - Economy A: additive allocation (invest where marginal returns are highest)
+  - Economy B: O-Ring allocation (fix the weakest dimension first)
+  - Calibrate against real World Bank / FRED country data
+  - Compare GDP, inequality, collapse events over 50-year simulation
+  - Extends Kremer 1993 (QJE) with computational evidence
+  - Precedent: "Computational Simulation of Post-Capitalist Resource Allocation" (2026)
+
+### Anesthesiology Application
+- [ ] Investigate MC-based dosing algorithms: model patient drug space as multiplicative, identify binding constraint, recommend O-Ring inversion (fix weakest dimension first)
+- [ ] "Pharmacokinetic and Pharmacodynamic Interactions Between Opioids and Propofol" (1997) — multi-drug interaction surface
