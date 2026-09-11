@@ -199,3 +199,15 @@ Hypothesis: practitioner vocabulary ("black magic"/"dark art") reliably detects 
 ### Anesthesiology Application
 - [ ] Investigate MC-based dosing algorithms: model patient drug space as multiplicative, identify binding constraint, recommend O-Ring inversion (fix weakest dimension first)
 - [ ] "Pharmacokinetic and Pharmacodynamic Interactions Between Opioids and Propofol" (1997) — multi-drug interaction surface
+
+## P2 — WHETSTONE Adversarial Follow-ups (from research/WHETSTONE_ADVERSARIAL.md, 2026-06-24)
+- [ ] Penn World Table result is essentially tied (0.963 vs 0.961 Spearman) —
+      determine whether this test discriminates multiplicative vs additive
+      at all, or whether a different dataset/metric is needed for this domain
+- [ ] Axiom 4 (homogeneity) and Axiom 5 (separability) are load-bearing and
+      debatable for emergent systems — evaluate whether they hold as stated
+      or need explicit scoping/caveat outside the cleaner validated domains
+- [ ] (lower priority, noted alongside the above) Algebra-of-Emergence domain
+      examples (2008 crisis, Boeing) are retrospective narration, not
+      quantitative tests; O-Ring inversion needs an explicit
+      positive/normative boundary
