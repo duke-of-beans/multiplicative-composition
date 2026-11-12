@@ -1,0 +1,280 @@
+{
+ "generated": "2026-11-12",
+ "method": "Fits the N-input CES family in log space",
+ "results": [
+  {
+   "dataset": "Concrete strength (5 always-present ingredients)",
+   "n": 1030,
+   "output": "strength",
+   "dimensions": [
+    "cement",
+    "water",
+    "coarseagg",
+    "fineagg",
+    "age"
+   ],
+   "note": "slag, ash, superplastic are zero in many rows with positive strength, so they are not zero-collapse dimensions and are omitted",
+   "entered_as_reciprocal": [
+    "water",
+    "coarseagg",
+    "fineagg"
+   ],
+   "powerlaw_exponents_unconstrained": {
+    "cement": 0.488,
+    "water": -2.287,
+    "coarseagg": -1.615,
+    "fineagg": -1.59,
+    "age": 0.288
+   },
+   "rho_hat": -0.298,
+   "rho_ci95": [
+    -0.354,
+    -0.219
+   ],
+   "rho_at_bound": false,
+   "boot_reps": 200,
+   "clustered_by": null,
+   "ces_weights": {
+    "cement": 0.083,
+    "water": 0.357,
+    "coarseagg": 0.256,
+    "fineagg": 0.26,
+    "age": 0.043
+   },
+   "r2_log_mc": 0.7554,
+   "r2_log_ces": 0.7733,
+   "r2_log_translog_pairs": 0.8104,
+   "spearman_mc": 0.8846,
+   "spearman_ces": 0.885,
+   "spearman_additive": 0.77,
+   "imbalance_F": 24.87,
+   "imbalance_p": 2.1872612483961565e-42,
+   "verdict": "rho < 0: zero-collapsing, more bottlenecked than MC"
+  },
+  {
+   "dataset": "Concrete strength (binder = cement+slag+ash)",
+   "n": 1030,
+   "output": "strength",
+   "dimensions": [
+    "binder",
+    "water",
+    "coarseagg",
+    "fineagg",
+    "age"
+   ],
+   "note": "cementitious materials pooled additively as substitutes",
+   "entered_as_reciprocal": [
+    "water"
+   ],
+   "powerlaw_exponents_unconstrained": {
+    "binder": 2.047,
+    "water": -0.121,
+    "coarseagg": 1.681,
+    "fineagg": 1.651,
+    "age": 0.306
+   },
+   "rho_hat": -0.2,
+   "rho_ci95": [
+    -0.256,
+    -0.145
+   ],
+   "rho_at_bound": false,
+   "boot_reps": 200,
+   "clustered_by": null,
+   "ces_weights": {
+    "binder": 0.353,
+    "water": 0.0,
+    "coarseagg": 0.304,
+    "fineagg": 0.293,
+    "age": 0.05
+   },
+   "r2_log_mc": 0.8001,
+   "r2_log_ces": 0.8092,
+   "r2_log_translog_pairs": 0.8248,
+   "spearman_mc": 0.9068,
+   "spearman_ces": 0.9065,
+   "spearman_additive": 0.7844,
+   "imbalance_F": 13.3,
+   "imbalance_p": 3.9648330202612995e-22,
+   "verdict": "rho < 0: zero-collapsing, more bottlenecked than MC"
+  },
+  {
+   "dataset": "Abalone age (rings)",
+   "n": 4175,
+   "output": "rings",
+   "dimensions": [
+    "length",
+    "diameter",
+    "height",
+    "whole_w",
+    "shucked_w",
+    "viscera_w",
+    "shell_w"
+   ],
+   "note": "dimensions are strongly collinear size measures",
+   "entered_as_reciprocal": [
+    "length",
+    "shucked_w",
+    "viscera_w"
+   ],
+   "powerlaw_exponents_unconstrained": {
+    "length": -0.376,
+    "diameter": 0.184,
+    "height": 0.123,
+    "whole_w": 0.581,
+    "shucked_w": -0.585,
+    "viscera_w": -0.066,
+    "shell_w": 0.374
+   },
+   "rho_hat": -0.015,
+   "rho_ci95": [
+    -0.023,
+    -0.005
+   ],
+   "rho_at_bound": false,
+   "boot_reps": 200,
+   "clustered_by": null,
+   "ces_weights": {
+    "length": 0.174,
+    "diameter": 0.073,
+    "height": 0.051,
+    "whole_w": 0.261,
+    "shucked_w": 0.257,
+    "viscera_w": 0.028,
+    "shell_w": 0.156
+   },
+   "r2_log_mc": 0.6387,
+   "r2_log_ces": 0.6407,
+   "r2_log_translog_pairs": 0.6612,
+   "spearman_mc": 0.7752,
+   "spearman_ces": 0.7762,
+   "spearman_additive": 0.7496,
+   "imbalance_F": 15.33,
+   "imbalance_p": 1.999893130442594e-53,
+   "verdict": "rho < 0: zero-collapsing, more bottlenecked than MC"
+  },
+  {
+   "dataset": "California housing value",
+   "n": 20433,
+   "output": "median_house_value",
+   "dimensions": [
+    "median_income",
+    "housing_median_age",
+    "rooms_per_hh",
+    "bedrooms_per_hh",
+    "population",
+    "occupancy"
+   ],
+   "note": "positive-valued features only; Paper 1's exact feature list is not in the repo, so this is a reconstruction",
+   "entered_as_reciprocal": [
+    "rooms_per_hh",
+    "occupancy"
+   ],
+   "powerlaw_exponents_unconstrained": {
+    "median_income": 1.108,
+    "housing_median_age": 0.146,
+    "rooms_per_hh": -0.748,
+    "bedrooms_per_hh": 0.685,
+    "population": 0.032,
+    "occupancy": -0.39
+   },
+   "rho_hat": 0.526,
+   "rho_ci95": [
+    0.466,
+    0.581
+   ],
+   "rho_at_bound": false,
+   "boot_reps": 200,
+   "clustered_by": null,
+   "ces_weights": {
+    "median_income": 0.388,
+    "housing_median_age": 0.066,
+    "rooms_per_hh": 0.242,
+    "bedrooms_per_hh": 0.113,
+    "population": 0.021,
+    "occupancy": 0.171
+   },
+   "r2_log_mc": 0.5718,
+   "r2_log_ces": 0.6007,
+   "r2_log_translog_pairs": 0.6129,
+   "spearman_mc": 0.7835,
+   "spearman_ces": 0.7921,
+   "spearman_additive": 0.7512,
+   "imbalance_F": 56.27,
+   "imbalance_p": 1.2149233459572573e-166,
+   "verdict": "rho > 0: partly substitutable (between MC and additive)"
+  },
+  {
+   "dataset": "Penn World Table (output, capital, labour)",
+   "n": 9479,
+   "output": "rgdpo",
+   "dimensions": [
+    "cn",
+    "emp"
+   ],
+   "note": "pooled country-years, PWT 10.01",
+   "entered_as_reciprocal": [],
+   "powerlaw_exponents_unconstrained": {
+    "cn": 0.68,
+    "emp": 0.27
+   },
+   "rho_hat": 0.43,
+   "rho_ci95": [
+    0.239,
+    0.624
+   ],
+   "rho_at_bound": false,
+   "boot_reps": 200,
+   "clustered_by": "country",
+   "ces_weights": {
+    "cn": 0.761,
+    "emp": 0.239
+   },
+   "r2_log_mc": 0.9522,
+   "r2_log_ces": 0.9549,
+   "r2_log_translog_pairs": 0.9547,
+   "spearman_mc": 0.9749,
+   "spearman_ces": 0.9766,
+   "spearman_additive": 0.9757,
+   "imbalance_F": 23.92,
+   "imbalance_p": 2.221327059275975e-06,
+   "verdict": "rho > 0: partly substitutable (between MC and additive)"
+  },
+  {
+   "dataset": "Penn World Table (capital, human-capital-adjusted labour)",
+   "n": 8201,
+   "output": "rgdpo",
+   "dimensions": [
+    "cn",
+    "hc_emp"
+   ],
+   "note": "pooled country-years, PWT 10.01",
+   "entered_as_reciprocal": [],
+   "powerlaw_exponents_unconstrained": {
+    "cn": 0.64,
+    "hc_emp": 0.297
+   },
+   "rho_hat": 0.694,
+   "rho_ci95": [
+    0.48,
+    0.958
+   ],
+   "rho_at_bound": false,
+   "boot_reps": 200,
+   "clustered_by": "country",
+   "ces_weights": {
+    "cn": 0.749,
+    "hc_emp": 0.251
+   },
+   "r2_log_mc": 0.9494,
+   "r2_log_ces": 0.9546,
+   "r2_log_translog_pairs": 0.9544,
+   "spearman_mc": 0.9726,
+   "spearman_ces": 0.975,
+   "spearman_additive": 0.9743,
+   "imbalance_F": 57.43,
+   "imbalance_p": 4.024420719057635e-12,
+   "verdict": "rho > 0: partly substitutable (between MC and additive)"
+  }
+ ]
+}
