@@ -1,13 +1,27 @@
 # Multiplicative-Composition — BACKLOG
-**Last Updated:** 2026-07-16
+**Last Updated:** 2026-11-12
 **Canonical. Single source of truth.**
 
 ---
 
+## P0 — Axiom Revision (blocks Paper 1 submission) — opened 2026-11-12
+Source: research/UNIT_INVARIANCE_THEOREM.md
+- [x] Theorem 1 (unit invariance + continuity => power law; necessity => zero-collapse) written and proven — 2026-11-12
+- [x] Machine checks: data/tests/unit_invariance_checks.py, 17 pass — 2026-11-12
+- [x] rho with bootstrap intervals on concrete, abalone, California housing, Penn World Table — data/results/rho_profile_results.json — 2026-11-12
+- [ ] Read and verify theorem statements: Luce 1959, Aczel-Roberts-Rosenbaum 1986, Ebert-Welsch 2004, Tsui-Weymark 1997, Bergson 1936
+- [ ] Full proof or checked citation for Theorem 2 (ordinal form) and Proposition 3 (CES classification)
+- [ ] Revise Paper 1 v2 per the 8 changes in section 7 of the note (axioms, "no third option", CES paragraph, genealogy, rho table, marginal inversion, bounded-index boundary)
+- [ ] rho on the World Bank datasets (agriculture, infrastructure, child survival, HDI components) — raw files not in repo
+- [ ] rho on Clinical EEG and Network Sync — files on G7
+- [ ] Concrete: decide dimension set (ratios / pooled binder) and state how zero-valued ingredients are handled
+- [ ] Carry the corrected marginal statement (alpha_i / x_i) into Paper 3
+- [ ] Carry the ordinal theorem (rankings must survive a change of units) into Paper 4
+
 ## P0 — arXiv Submission
 - [ ] Get arXiv endorsement for econ.TH (code 4EWXUO, target Pitz & Ferraz)
   - Pitz: thomas.pitz@hochschule-rhein-waal.de | Ferraz: vinicius@singularity.inc | either alone suffices | hook: coalition feasibility as non-substitutable dimension
-- [ ] Submit Paper 1 v2 (paper_v2.tex) — reframed as law, 9 independent derivations
+- [ ] Submit Paper 1 v2 (paper_v2.tex) — reframed as law, 9 independent derivations — HOLD until Axiom Revision above lands (2026-11-12)
 - [ ] Submit Paper 2 v1 (paper2_v1.tex) — information geometry, companion paper
 - [ ] Update davidkirsch.me research page with arXiv links
 
