@@ -1,5 +1,37 @@
 # Multiplicative-Composition — STATUS
-**Last Updated:** 2026-11-12
+Last Updated: 2026-11-18
+Last Recorded: wo-20261112-5e0c58d1 — MC: rho (CES/Kmenta) tests on public datasets
+
+<!-- work-orders:begin (generated from portfolio.orders by the record step; edits inside this block are overwritten) -->
+## Work orders
+
+_Generated 2026-11-18T20:29:04.910Z from the work-order store. Done means verified and recorded; the live view is GregLite._
+
+**Project:** multiplicative-composition (Multiplicative Composition, parked)
+
+### Waiting on David
+
+Nothing.
+
+### In flight
+
+Nothing in flight.
+
+### Receipts
+
+None.
+
+### Open kickbacks
+
+None.
+
+### Recently recorded (last 30 days)
+
+- 2026-11-18 `wo-20261112-3f1beed8` **MC: unit-invariance theorem note + machine checks** (multiplicative-composition) — [duke-of-beans/multiplicative-composition#1](https://github.com/duke-of-beans/multiplicative-composition/pull/1) · merged, checks green
+- 2026-11-18 `wo-20261112-5e0c58d1` **MC: rho (CES/Kmenta) tests on public datasets** (multiplicative-composition) — [duke-of-beans/multiplicative-composition#2](https://github.com/duke-of-beans/multiplicative-composition/pull/2) · merged, checks green
+
+<!-- work-orders:recorded wo-20261112-3f1beed8 wo-20261112-5e0c58d1 -->
+<!-- work-orders:end -->
 
 ## Current State
 Paper 1 v2 is ON HOLD for submission (2026-11-12; previously SUBMISSION-READY as of 2026-07-10). Papers 2-4 at v1.
