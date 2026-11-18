@@ -1,0 +1,56 @@
+# Installed by the git plane (gate-bootstrap). Public repo: GitHub-hosted runner (free for public repos; fork PRs stay off our machines).
+# Work-order gate (canon §24, step 2, order wo-20261009-e928de49).
+# Every pull request must cite an open work order: a line "Order: wo-YYYYMMDD-xxxxxxxx" in its body.
+# The record step's pull requests cite "Records: wo-..., wo-..." instead and may touch only record files:
+# STATUS.md, docs/GREGORE_CANON.md, and docs/records/<project>.md (where projects with no repo of their own
+# keep their record, work-orders/record.ts FALLBACK_REPO).
+# Runs on pull_request_target, so this file is always read from the default branch, never from the
+# pull request; it never checks out or runs the pull request's code. The answer comes from the order
+# store (public.gate_check), which returns yes/no and a reason only.
+name: gate
+on:
+  pull_request_target:
+    types: [opened, edited, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Work order gate
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ github.token }}
+          GATE_URL: https://zdmxqzkqutizehynqojk.supabase.co/rest/v1/rpc/gate_check
+          # Supabase publishable key: public by design (it only reaches what anon may call).
+          KEY_A: sb_publishable_
+          KEY_B: ipDjtTfboRaDAiw6HnxEYA_ji9JFEg_
+        run: |
+          set -euo pipefail
+          ids() { grep -oE 'wo-[0-9]{8}-[0-9a-f]{8}' | sort -u | paste -sd, -; }
+          RECORDS=$(printf '%s\n' "$BODY" | grep -E '^Records:' | head -1 | ids || true)
+          ORDER=$(printf '%s\n' "$BODY" | grep -E '^Order:' | head -1 | ids || true)
+          if [ -n "$RECORDS" ]; then
+            MODE=record; LIST="$RECORDS"
+            BAD=$(gh api "repos/$REPO/pulls/$PR/files" --paginate --jq '.[].filename' | grep -vE '(^|/)STATUS\.md$|^docs/GREGORE_CANON\.md$|^docs/records/[^/]+\.md$' || true)
+            if [ -n "$BAD" ]; then
+              echo "::error::A record pull request may touch only STATUS.md files, docs/GREGORE_CANON.md and docs/records/<project>.md. Also changed: $(echo "$BAD" | paste -sd, -)"
+              exit 1
+            fi
+          elif [ -n "$ORDER" ]; then
+            MODE=work; LIST="$ORDER"
+          else
+            echo "::error::No 'Order: wo-...' line in the pull request body. Every change needs an open work order (canon §24)."
+            exit 1
+          fi
+          PAYLOAD=$(jq -cn --arg list "$LIST" --arg mode "$MODE" --arg repo "$REPO" '{p_orders: ($list | split(",")), p_mode: $mode, p_repo: $repo}')
+          RES=$(curl -fsS -m 20 "$GATE_URL" -H "apikey: ${KEY_A}${KEY_B}" -H "Content-Type: application/json" -d "$PAYLOAD")
+          echo "$RES" | jq .
+          if ! echo "$RES" | jq -e '.pass == true' >/dev/null; then
+            echo "::error::Work-order gate refused: $(echo "$RES" | jq -r '.reason') $(echo "$RES" | jq -c '[.orders[]? | select(.ok == false)]')"
+            exit 1
+          fi
